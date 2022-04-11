@@ -1,0 +1,33 @@
+<h1> My first Angular app </h1>
+
+<!-- The context for all the names in the template expressions
+below is the root component -->
+
+<!-- Referencing the myLocation property in the component -->
+<h2> This app is hosted in {{ myLocation }} </h2>
+
+<!-- Calling a standard JavaScript method in the template expression -->
+<h3> {{ myLocation.toUpperCase() + " is a great place"}} </h3>
+
+<!-- Referencing the getMoreLanguages method in the component -->
+<p> There are {{2 + 1}} languages that I like: {{ 'Python, ' + getMoreLanguages()}}</p>
+
+<!-- When there are strings present in the template expression
+and concatenation occurs, any numeric operands present as well
+are autoconverted to strings  -->
+<p> {{ "Incorrect addition : " +  2 + 3 }} </p> 
+
+<!-- In such a situation, we will need to put parenthesis around
+  anything that we want evaluated as a proper mathematical 
+  expression -->
+<p> {{ "Correct addition : " +  (2 + 3) }} </p> 
+
+<!-- We don't normally use interpolation to assign values to element 
+attributes as in the two examples below, instead we will use property binding -->
+
+<!-- Notice that the entire string concatenation operation is provided
+as a template expression within the {{}} -->
+ <img src="{{'/assets/' + imageName + '.jpg'}}" alt="some animal"/>
+
+<br>
+<a href="{{'https://' + newsSite}}">My favorite news site</a>

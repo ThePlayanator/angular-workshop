@@ -1,0 +1,38 @@
+<h1> My first Angular app </h1>
+
+<!-- We use a dummy event binding here (keyup)="0" so that Angular's 
+change detection process is triggered in order to update the value 
+property of the HTMLInputElement referenced by the template variable
+ -->
+<label for="firstbox">First text box:</label><br>
+<input #firstbox type="text" id="firstbox" name="firstbox" (keyup)="0">
+
+<!-- Directly access the template variable in the template itself -->
+<p>Contents of first textbox: {{firstbox.value}}</p>
+
+<label for="secondbox">Enter text for the green button:</label><br>
+<input #secondbox type="text" id="secondbox" name="secondbox" (input)="processSecondBox(secondbox)">
+
+<button type="button" (click)="isDisabled = !isDisabled">Click to disable / enable green button </button>
+<br>
+<br>
+<button type="button" class="bigbutton" [disabled]="isDisabled" (click)="firstbox.value=''">{{greenButtonText}}</button>
+<br>
+<br>
+<label for="thirdbox">Enter animal that you want to view :</label><br>
+<input #thirdbox type="text" id="thirdbox" name="thirdbox" (input)="processThirdBox(thirdbox)">
+<br>
+<br>
+<img [src]="'/assets/' + imageName + '.jpg'" alt="some animal" />
+<br>
+<h4>Options for styling text</h4>
+<input type="checkbox" id="makeLarge" name="makeLarge" value="makeLarge" (input)="isItLarge=!isItLarge">
+<label for="makeLarge">Make it large</label><br>
+<input type="checkbox" id="makeSpecial" name="makeSpecial" value="makeSpecial" (input)="isItSpecial=!isItSpecial">
+<label for="makeSpecial">Make it special</label><br>
+<input type="checkbox" id="makeDangerous" name="makeDangerous" value="makeDangerous" (input)="isItDangerous=!isItDangerous">
+<label for="makeDangerous">Make it dangerous</label><br><br>
+<hr>
+
+<p [class.large]="isItLarge" [class.dangerous]="isItDangerous" [class.special]="isItSpecial">Text to style</p>
+

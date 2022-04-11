@@ -1,0 +1,31 @@
+.bigbutton {
+    background-color: #4CAF50;
+    /* border: none; */
+    /* color: white; */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+img {
+    width: 150px;
+    height : auto
+}
+
+
+
+.large {
+    font-size: 30px;
+} 
+
+.special {
+    font-style: italic;
+}
+
+.dangerous {
+    color: red;
+}
+

@@ -1,0 +1,9 @@
+<h1> My first Angular app </h1>
+
+<!-- Single binding adds a class, but does not remove the existing one -->
+<p class="medium" [class.safe]="isThisForReal">The first paragraph</p>
+
+<!-- Single binding can be used to remove the existing class, if they
+both have  the same name -->
+<p class="large danger emphasize" [class.danger]="isItDangerous">The second paragraph</p>
+

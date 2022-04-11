@@ -1,0 +1,12 @@
+<h1> My first Angular app </h1>
+
+<!-- Multiple binding adds two new classes, but does not remove the existing one -->
+<p class="large" [class]="stringOfClasses">The first paragraph</p>
+
+<!-- Multiple binding adds two new classes and removes an existing one -->
+<p class="large" [class]="classesToAdd">The second paragraph</p>
+
+<!-- Multiple binding adds three new classes 
+including one that has conflicting style rule with an existing class -->
+<p class="normal" [class]="classesInArray">The third paragraph</p>
+

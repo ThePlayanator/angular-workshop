@@ -1,0 +1,22 @@
+<h1> My first Angular app </h1>
+
+
+<form>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" (input)="processFirstName($event)">
+
+  <br>
+  <br>
+
+  <input type="checkbox" id="progLang" name="progLang" value="Angular" (input)="processCheckBox($event)">
+  <label for="progLang"> I love Angular !</label>
+  
+  <br>
+  <br>
+
+  <button type="button" name="fbutton" (click)="processNormalButton($event)">Click Me!</button>
+
+</form>
+
+
+

@@ -1,0 +1,22 @@
+<h1> My first Angular app </h1>
+
+<!-- Single style binding example -->
+<button [style.font-size.%]="isSpecial ? 200 : 50" >Resize me !</button>
+
+<!-- Single style binding example -->
+<p [style.color]="getTextColor()">The first paragraph</p>
+
+<br>
+
+<!-- Multiple style binding example -->
+<p><img src="/assets/cat.jpg" [style]="styleFirstImage" alt="some cat" >
+Cats are sooooo cute ....</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- Multiple style binding example -->
+<img src="/assets/dog.jpg" [style]="styleSecondImage" alt="some dog"/>
+
