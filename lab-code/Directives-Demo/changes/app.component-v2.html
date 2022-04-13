@@ -1,0 +1,21 @@
+<h1> My first Angular app </h1>
+
+
+<p [ngStyle]="styleTheText">Text to style with ngStyle</p>
+
+
+<!-- No error checking performed. Make sure you enter a valid value -->
+<label for="colorField">Color to style text with :</label><br>
+<input #colorField type="text" id="colorField" name="colorField">
+<br>
+<button type=button (click)="changeColor(colorField.value)">Change color</button>
+
+<br>
+<br>
+
+<!-- No error checking performed. Make sure you enter a valid value -->
+<label for="sizeField">Font size of text :</label><br>
+<input #sizeField type="text" id="sizeField" name="sizeField">
+<br>
+<button type=button (click)="changeFontSize(sizeField.value)">Change font size</button>
+

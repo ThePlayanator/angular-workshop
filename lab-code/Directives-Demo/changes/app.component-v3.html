@@ -1,0 +1,12 @@
+<h1> My first Angular app </h1>
+
+<h4> Demonstrating basic ngIf </h4>
+
+First checkbox <input type="checkbox" (input)="showFirst=!showFirst" />
+
+<!-- Using ngIf to conditionally show/hide the <p> text -->
+<p *ngIf="showFirst">First checkbox is ticked: using ngIf</p>
+
+<!-- Using hidden property to conditionally show/hide the <p> text -->
+<p [hidden]="!showFirst">First checkbox is ticked: using [hidden]</p>
+

@@ -1,0 +1,15 @@
+<h1>From the root component</h1>
+
+<p>Value of parent counter : {{parentCounter}}</p>
+
+<!-- We now call the methods in the child component instead -->
+<!-- The methods of the same name in parent component are no longer needed -->
+<button (click)="myChild.incCounter()">Increment</button>
+<button (click)="myChild.decCounter()">Decrement</button>
+
+<p>Text from child : {{myChild.childText}}</p>
+
+<!-- Removed the textChanged event binding from the child component -->
+
+<app-first-child #myChild [childCounter]="parentCounter" (counterChanged)="parentCounter=$event"></app-first-child>
+

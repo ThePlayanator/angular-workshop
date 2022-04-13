@@ -1,0 +1,25 @@
+<h1> Employee app </h1>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Marital Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees;let i=index;" [ngClass]="{ special : i === rowToHighlight }">
+        <td>{{i+1}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.isMarried ? 'married':'single'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+<app-employee *ngFor="let emp of employees; let i=index;" [myEmployee]="emp" [employeeNum]="i" (rowChanged)="rowToHighlight = $event"></app-employee>

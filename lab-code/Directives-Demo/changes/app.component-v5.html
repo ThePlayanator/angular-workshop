@@ -1,0 +1,23 @@
+<h1> My first Angular app </h1>
+
+<h4> Using i to track the index of the item in ngFor </h4>
+
+<!-- Ensure you enter a valid value, no error checking performed here ! -->
+<label for="buttonNum">Button number : </label>
+<input #buttonNum type="number" id="buttonNum" name="buttonNum">
+<br>
+
+<!-- Ensure you enter a valid value, no error checking performed here ! -->
+<label for="newName">New name : </label>
+<input #newName type="text" id="newName" name="newName">
+<br>
+
+<button (click)="changeName(buttonNum.value, newName.value)">Make change</button>
+
+<p>{{message}}</p>
+
+<!-- Use local variable i to access index into collection -->
+<div class="button-container" *ngFor="let emp of employees;let i = index">
+  <button (click)="showButtonInfo(i)">
+  Button # {{i}} : {{emp.name}}</button>
+</div>

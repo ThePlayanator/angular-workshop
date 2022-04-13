@@ -1,0 +1,23 @@
+<div>
+    <p>Employee # {{employeeNum+1}}</p>
+
+    <label for="empName">Name :</label>
+    <input type="text" id="empName" name="empName" [(ngModel)]="myEmployee.name">
+    <br>
+    <label for="empAge">Age :</label><br>
+    <input type="number" id="empAge" name="empAge" [(ngModel)]="myEmployee.age">
+    <br>
+    <form>
+        Marital Status 
+        <br>
+        <input #marriedbox type="radio" id="married" name="maritalStatus" [checked]="myEmployee.isMarried">
+        <label for="married">married</label><br>
+
+        <input type="radio" id="single" name="maritalStatus" [checked]="!myEmployee.isMarried">
+        <label for="single">single</label><br>
+    </form>
+
+
+    <button type=button (click)="setNewValues(marriedbox.checked)">Set new values</button>
+
+</div>

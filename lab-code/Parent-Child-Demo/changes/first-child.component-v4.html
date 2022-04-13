@@ -1,0 +1,17 @@
+<h3>Inside first-child</h3>
+
+<p>Child counter is: {{childCounter}}</p>
+
+<br>
+
+<button (click)="incCounter()">Increment</button>
+<button (click)="decCounter()">Decrement</button>
+
+<br>
+<br>
+
+<label for="childbox">Child text box :</label><br>
+<input #textinput type="text" id="childbox" name="childbox" (input)="processTextChange(textinput.value)">
+
+
+<p>Value in text box: {{textinput.value}}</p>

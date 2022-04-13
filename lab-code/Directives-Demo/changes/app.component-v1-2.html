@@ -1,0 +1,24 @@
+<h1> My first Angular app </h1>
+
+<button type=button (click)="flipValues()">Flip key values for object for adding classes to 2nd paragraph</button>
+
+
+<!-- Using the ngClass allows dynamic updating when keys in the bound 
+object change values -->
+<p [ngClass]="classesToAdd">Second paragraph using ngClass</p>
+
+<!-- Using the normal [class] binding does !!NOT!! support dynamic updating when keys in the bound object change values -->
+<p [class]="classesToAdd">Second paragraph using [class] binding</p>
+
+
+<label for="classField">Class name to add to 3rd paragraph:</label><br>
+<input #classField type="text" id="classField" name="classField">
+<br>
+<br>
+
+<button type=button (click)="addNewName(classField.value)">Add name</button>
+<button type=button (click)="removeRecentName()">Remove most recent name</button>
+
+<!-- ngClass allows dynamic updating of binding based on new content in classesInArray -->
+<p [ngClass]="classesInArray">The third paragraph</p>
+

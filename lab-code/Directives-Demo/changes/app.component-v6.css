@@ -1,0 +1,27 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+div {
+    width: 130px;
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid blue;
+}
+
+/* set styling for odd, even, first and last items in the collection */
+.oddStyle {
+    background-color: aliceblue;
+}
+
+.evenStyle {
+    background-color: aquamarine;
+}
+
+.firstStyle {
+    border: 4px dotted purple;
+}
+
+.lastStyle {
+    border: 4px dashed red;
+}
