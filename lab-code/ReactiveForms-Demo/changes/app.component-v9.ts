@@ -1,0 +1,73 @@
+import { Component } from '@angular/core';
+import { FormControl, FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  // Inject the FormBuilder as a service via
+  // the constructor (to explore later in section on services)
+  constructor(private fb: FormBuilder) { }
+
+// Use the group method of FormBuilder to group the FormControls
+// within the main FormGroup
+  profileForm = this.fb.group({
+
+    // Remove validator functions temporarily to simplify demonstration
+    // of FormArrays
+
+    firstname: [''],
+    lastname: [''],
+
+    // Create an initially empty FormArray
+    // using the FormBuilder array method
+    jobs: this.fb.array([])
+
+
+
+  });
+
+  // implement logic to process submitted form data
+  onSubmit() {
+    console.log(this.profileForm.value);
+  }
+
+  // Getter methods for the various FormControl objects
+  // This simplifies accessing them in the template syntax
+  // using the ngIf directive in the corresponding template
+
+  get firstname() { return this.profileForm.get('firstname'); }
+
+  get lastname() { return this.profileForm.get('lastname'); }
+
+  get jobs() {
+    return this.profileForm.get('jobs') as FormArray;
+  }
+
+  // Add a new Job FormGroup to the jobs FormArray
+  addJob() {
+    this.jobs.push(this.createNewJob());
+  }
+
+  // Create a new FormGroup with FormControls
+  // representing info for a single new job
+  createNewJob(): FormGroup {
+    return this.fb.group({
+      jobTitle : [''],
+      years : [0],
+    })
+
+  }
+
+  // Remove an existing Job FormGroup from the jobs FormArray
+  // based on its index position in the FormArray
+  removeJob(jobIndex: number) {
+    this.jobs.removeAt(jobIndex);
+  }
+
+
+}

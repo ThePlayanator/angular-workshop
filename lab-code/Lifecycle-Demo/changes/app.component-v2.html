@@ -1,0 +1,23 @@
+<h1>Demonstrating life cycle hooks</h1>
+
+<label>Typing here does not trigger any hooks :</label>
+<input type="text">
+<br>
+<br>
+<label>Typing here triggers hooks:</label>
+<input #textinput type="text" (input)="setStringVal(textinput)">
+<p>You typed : {{ myString }}</p>
+
+<p>Value of parent counter : {{parentCounter}}</p>
+
+<button (click)="incCounter()">Increment</button>
+<button (click)="decCounter()">Decrement</button>
+
+<p>Text from child : {{childText}}</p>
+
+<button (click)="toggleChildDisplay()">{{toggleMessage}}</button>
+
+
+<!-- Binding parent property to child property that has @Input decorator -->
+<!-- Event binding with target event being property from child with @Output decorator -->
+<app-first-child *ngIf="showChild" [childCounter]="parentCounter" (textChanged)="processChangeFromChild($event)"></app-first-child>

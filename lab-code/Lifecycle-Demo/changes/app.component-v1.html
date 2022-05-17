@@ -1,0 +1,9 @@
+<h1>Demonstrating life cycle hooks</h1>
+
+<label>Typing here does not trigger any hooks :</label>
+<input type="text">
+<br>
+<br>
+<label>Typing here triggers hooks:</label>
+<input #textinput type="text" (input)="setStringVal(textinput)">
+<p>You typed : {{ myString }}</p>

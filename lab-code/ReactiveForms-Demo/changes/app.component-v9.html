@@ -1,0 +1,51 @@
+<h1>Reactive Forms Demo</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <!-- Use formArrayName to bind form elements nested in here
+  to the actual FormArray object in the main FormGroup model -->
+  <div formArrayName="jobs">
+    <h4>Jobs</h4>
+    <button type="button" (click)="addJob()">Add info for new job</button>
+
+    <!-- Use ngFor to iterate over the individual FormGroup items
+    within the main FormArray object -->
+    <div *ngFor="let job of jobs.controls; let jobIndex = index">
+
+<!--       Bind the index of the ngFor loop to the 
+      formGroupName directive to keep track of the FormGroup items stored in the main FormArray object -->
+      <div [formGroupName]="jobIndex">
+        <p>Job # {{jobIndex + 1}}</p> 
+        
+        <!-- Use formControlName to bind the respective form elements
+        to the FormControls within the FormGroup -->
+        <label for="jobTitle">Job title </label>
+        <input type="text" id="jobTitle" formControlName="jobTitle" />
+        <br>
+        <label for="years">Years at job </label>
+        <input type="number" id="years" formControlName="years" />
+        <br>
+        <button (click)="removeJob(jobIndex)">
+          Remove
+        </button>
+        <br>
+
+      </div>
+
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+  <br>
+
+</form>

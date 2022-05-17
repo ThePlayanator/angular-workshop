@@ -1,0 +1,56 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<!-- Use formGroup directive to bind to the main FormGroup instance in the
+component -->
+<form [formGroup]="profileForm">
+ 
+  <p>
+    <!-- Bind each individual form control element to the FormControl instance
+    in the component using the formControlName directive -->
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" formControlName="email">
+  </p>
+
+  <!-- For nested FormGroups, use formGroupName directive to bind to
+  the nested FormGroup in the component -->
+  <div formGroupName="address">
+    <h3>Address</h3>
+    <p>
+      <label for="street">Street</label>
+      <input type="text" id="street"  formControlName="street">
+    </p>
+
+    <p>
+      <label for="city">City</label>
+      <input type="text" id="city" formControlName="city">
+    </p>
+
+    <p>
+      <label for="state">State</label>
+      <input type="text" id="state" formControlName="state">
+    </p>
+
+  </div>
+
+  <!-- The form should typically end with a submit type button -->
+  <button type="submit">Submit</button>
+
+</form>
+
+<!-- The values of each of the individual nested form controls are directly 
+accessible from the value property of profileForm -->
+<p>The first name is : {{ profileForm.value.firstname }}</p>
+<p>The last name is : {{ profileForm.value.lastname }}</p>
+
+<p>The street name in the address is :  {{ profileForm.value.address.street }}</p>

@@ -1,0 +1,10 @@
+<h2>First Child</h2>
+
+<label for="newVal">New value for number in basic service : </label>
+<input type="number" #newVal id="newVal">
+<br>
+
+<button type="button" (click)="setValForService(newVal)">Set new value</button>
+
+<p>Number in basic service is : {{ tempVal }} </p>
+<button type="button" (click)="getValFromService()">Get existing value</button>

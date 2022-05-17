@@ -1,0 +1,55 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<!-- The FormGroup directive listens for the submit event emitted by the <form> element when a submit type button at the bottom of the form is clicked, and emits a ngSubmit event that can be bound to a component method. -->
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
+ 
+  <p>
+    <!-- Bind each individual form control element to the FormControl instance
+    in the component using the formControlName directive -->
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" formControlName="email">
+  </p>
+
+  <p>
+    <label for="age">Age </label>
+    <input type="number" id="age" formControlName="age">
+  </p>
+
+  <p>
+    <label for="job">Job </label>
+    <input type="text" id="job" formControlName="job">
+  </p>   
+
+  <button type="submit">Submit</button>
+  <br>
+
+</form>
+
+<p>The status for the first name control is : {{ profileForm.get("firstname")?.status }}</p>
+
+<p>The valid property for the first name control is : {{ profileForm.get("firstname")?.valid }}</p>
+
+<p>The status for the last name control is : {{ profileForm.get("lastname")?.status }}</p>
+
+<p>The valid property for the last name control is : {{ profileForm.get("lastname")?.valid }}</p>
+
+<p>The status for the email control is : {{ profileForm.get("email")?.status }}</p>
+
+<p>The status for the age is : {{ profileForm.get("age")?.status }}</p>
+
+<p>The status for the job is : {{ profileForm.get("job")?.status }}</p>
+
+<p>The status for the overall form is : {{ profileForm.status }}</p>
+
+

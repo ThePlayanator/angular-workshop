@@ -1,0 +1,92 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<!-- By setting novalidate attribute on the overall <form> element
+  we can disable built-in HTML5 validation and allow Angular instead
+to handle all validation for the form data -->
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" novalidate>
+ 
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <!-- Simplified expressions for all ngIf directives 
+    using getter methods for the various FormControl objects
+  in the main FormGroup object -->
+
+    
+  <!-- Validation error message for first name -->
+  <div *ngIf='firstname?.invalid && (firstname?.dirty || firstname?.touched)' style="color:red">
+    <div *ngIf="firstname?.errors?.['required']">
+      First name is required.
+    </div>
+    <div *ngIf="firstname?.errors?.['minlength']">
+      First name must be at least 3 characters long.
+    </div>
+  </div>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <!-- Validation error message for last name -->
+  <div *ngIf='lastname?.invalid && (lastname?.dirty || lastname?.touched)' style="color:red">
+    <div *ngIf="lastname?.errors?.['required']">
+      Last name is required.
+    </div>
+    <div *ngIf="lastname?.errors?.['maxlength']">
+      Last name cannot be more than 6 characters long.
+    </div>
+  </div>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" formControlName="email">
+  </p>
+
+  <!-- Validation error message for email -->
+  <div *ngIf='email?.invalid && (email?.dirty || email?.touched)' style="color:red">
+    <div *ngIf="email?.errors?.['required']">
+      Email is required.
+    </div>
+    <div *ngIf="email?.errors?.['email']">
+      Email is incorrect format
+    </div>
+  </div>  
+
+  <p>
+    <label for="age">Age </label>
+    <input type="number" id="age" formControlName="age">
+  </p>
+
+  <!-- Validation error message for age -->
+  <div *ngIf='age?.invalid && (age?.dirty || age?.touched)' style="color:red">
+    <div *ngIf="age?.errors?.['required']">
+      Age is required.
+    </div>
+    <div *ngIf="age?.errors?.['min']">
+      Age cannot be less than 18
+    </div>
+    <div *ngIf="age?.errors?.['max']">
+      Age cannot be more than 70
+    </div>    
+  </div>  
+
+  <p>
+    <label for="job">Job </label>
+    <input type="text" id="job" formControlName="job">
+  </p>   
+
+  <!-- No validation error message for job since this has no 
+  validator function associated with it -->
+
+
+  <!-- Disable the submit button if the status of the form is invalid. 
+  Only allow form submissions when all fields are valid -->
+  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+  <br>
+
+</form>
+

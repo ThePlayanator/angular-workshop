@@ -1,0 +1,62 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<!-- By setting novalidate attribute on the overall <form> element
+  we can disable built-in HTML5 validation and allow Angular instead
+to handle all validation for the form data -->
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" novalidate>
+ 
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <!-- Validation error message for first name -->
+  <div *ngIf='profileForm.get("firstname")?.invalid'>
+    First name is invalid
+  </div>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <!-- Validation error message for last name -->
+  <div *ngIf='profileForm.get("lastname")?.invalid'>
+    Last name is invalid
+  </div>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" formControlName="email">
+  </p>
+
+  <!-- Validation error message for email -->
+  <div *ngIf='profileForm.get("email")?.invalid'>
+    Email is invalid
+  </div>  
+
+  <p>
+    <label for="age">Age </label>
+    <input type="number" id="age" formControlName="age">
+  </p>
+
+  <!-- Validation error message for age -->
+  <div *ngIf='profileForm.get("age")?.invalid'>
+    Age is invalid
+  </div>  
+
+  <p>
+    <label for="job">Job </label>
+    <input type="text" id="job" formControlName="job">
+  </p>   
+
+  <!-- No validation error message for job since this has no 
+  validator function associated with it -->
+
+
+  <button type="submit">Submit</button>
+  <br>
+
+</form>
+

@@ -1,0 +1,14 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<form>
+  <label for="fname">First name:</label><br>
+  <!-- Binding  the form element (here a text field) to the FormControl 
+    property in the component  -->
+  <input type="text" id="fname" [formControl]="firstName"><br>
+</form>
+
+<!-- Using the value property of the FormControl property to display its value -->
+<p>The contents of first name : {{ firstName.value }}</p>
+
+<button (click)="resetFirstName()">Reset first name to : Superman</button>

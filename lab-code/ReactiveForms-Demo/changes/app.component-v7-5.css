@@ -1,0 +1,30 @@
+
+/* If we use the rule below, it will apply to all the borders of all 
+input fields including the top level <form> element itself */
+
+/* .ng-invalid {
+    border: 2px solid red;
+} */
+
+
+/* If we use this rule below, it will apply to all the borders of all 
+input fields except the top level <form> element itself */
+
+/* However the rule will cause all borders to be outlined when the form is 
+initially empty, which is not ideal */
+
+/* .ng-invalid:not(form) {
+    border: 2px solid red;
+} */
+
+/* This is the ideal rule that ensures borders are outlined only when
+the user has interacted with the text field */
+.ng-invalid:not(form).ng-touched {
+    border: 2px solid red;
+}
+
+/* Styling for valid content in form fields is optional in this case */
+
+.ng-valid:not(form).ng-dirty {
+    border: 2px solid black;
+}
