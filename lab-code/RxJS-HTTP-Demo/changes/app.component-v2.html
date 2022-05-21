@@ -1,0 +1,58 @@
+<h1>Demonstrating basic HTTP calls to fake API service </h1>
+
+<h3>Retrieving post # {{ postId }} at application bootstrap</h3>
+
+<p>User id : {{singlePost?.userId}} </p>
+<p>Post id : {{singlePost?.id}} </p>
+<p>Title : {{singlePost?.title}} </p>
+<p>Body : {{singlePost?.body}} </p>
+
+<p>Displaying the post using JSON pipe : {{ singlePost | json }} </p>
+
+<hr>
+
+<h3>Retrieving photo via user-specified photoId</h3>
+
+<label for="photoid">Enter id of photo to retrieve:</label>
+<input #photoinput type="number" id="photoid">
+
+<button type="button" (click)="retrievePhoto(photoinput)">Retrieve photo</button>
+
+<p>{{ errorMessage }}</p>
+
+<div *ngIf="singlePhoto">
+    <p>Album id : {{singlePhoto.albumId}} </p>
+    <p>Id : {{singlePhoto.id}} </p>
+    <p>Title : {{singlePhoto.title}} </p>
+    <p>Url : {{singlePhoto.url}} </p>
+    <p>thumbnailUrl : {{singlePhoto.thumbnailUrl}} </p>
+</div>
+
+<hr>
+
+<h3>Retrieving all posts and displaying in a table</h3>
+
+
+<button type="button" (click)="retrieveAllPosts()">Retrieve all posts</button>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Post Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of allPosts">
+            <td>{{post.userId}}</td>
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.body}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
