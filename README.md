@@ -1,2 +1,2 @@
 # Angular Workshop
-# Apr / May 2022
+July / Aug 2022
