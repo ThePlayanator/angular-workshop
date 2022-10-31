@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myLocation = 'Kuala Lumpur';
+  title = "Cool stuff";
+  
+  isDisabled = true;
 
-  getMoreLanguages(): string {
-    return 'Java and JavaScript';
-  }
 
 }

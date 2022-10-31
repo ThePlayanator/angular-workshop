@@ -1,9 +1,9 @@
 <h1> My first Angular app </h1>
 
 <!-- Using property binding -->
-<h3 [innerText]="title"> </h3>
+<h3 [innerText]="'Using property binding :' + title"> </h3>
 <!-- Using interpolation -->
-<h3> {{ title }} </h3>
+<h3> Using interpolation : {{ title }} </h3>
 
 <!-- Property binding works here because the template expression
 returns a boolean value which is required by the disabled property -->
@@ -14,16 +14,3 @@ returns a string which CANNOT be assigned to non-string element properties -->
 <button type="button" disabled={{isDisabled}}>This will never change</button>
 <br>
 
-<!-- Using property binding -->
-<img [src]="'/assets/' + imageName + '.jpg'" alt="some animal"/>
-<br>
-<!-- Using interpolation -->
-<img src="{{'/assets/' + imageName + '.jpg'}}" alt="some animal"/>
-<br>
-
-<!-- Using property binding -->
-<a [href]="'https://' + newsSite">My favorite news site</a>
-<br>
-<!-- Using interpolation -->
-<a href="{{'https://' + newsSite}}">My favorite news site</a>
-<br>
