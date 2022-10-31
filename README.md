@@ -1,2 +1,2 @@
-# Angular Workshop
-July / Aug 2022
+# Angular with Basic Unit Testing Workshop
+Nov 2022
