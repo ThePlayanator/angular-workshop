@@ -15,16 +15,15 @@ export class AppComponent {
   firstBoxContent = '';
   secondBoxContent = '';
   thirdBoxContent = '';
-  fourthBoxContent = '';
 
 
   constructor() {
     this.resetTextBoxes();
   }
 
-  processFourthBox(boxContent: string) {
+  processThirdBox(boxContent: string) {
 
-    this.fourthBoxContent = boxContent.toLocaleUpperCase();
+    this.thirdBoxContent = boxContent.toLocaleUpperCase();
 
   }
 
@@ -33,7 +32,6 @@ export class AppComponent {
     this.firstBoxContent = this.initialValue;
     this.secondBoxContent = this.initialValue;
     this.thirdBoxContent = this.initialValue;
-    this.fourthBoxContent = this.initialValue;
 
   }
 
