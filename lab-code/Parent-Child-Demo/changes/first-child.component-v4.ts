@@ -25,14 +25,20 @@ export class FirstChildComponent {
     this.textChanged.emit(value);
   }
 
+
+/*     Notice that we do not increment or decrement childCounter directly.
+    Instead, we pass the value of childCounter added / subtracted with 1 
+    as the value emitted with the event counterChanged. 
+    Subsequently, the property binding in the parent template binding
+    will change childCounter as a result of change in the parentCounter
+*/  
+
   incCounter() {
-    this.childCounter++;
-    this.counterChanged.emit(this.childCounter);
+    this.counterChanged.emit(this.childCounter + 1);
   }
 
   decCounter() {
-    this.childCounter--;
-    this.counterChanged.emit(this.childCounter);
+    this.counterChanged.emit(this.childCounter - 1);
   }
 
 }

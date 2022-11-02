@@ -7,7 +7,8 @@
 
 <p>Text from child : {{childText}}</p>
 
-<!-- Binding parent property to child property that has @Input decorator -->
-<!-- Event binding with target event being property from child with @Output decorator -->
+<!-- Event binding results in parentCounter being updated with the value in the event coming up from the child -->
+<!-- Subsequently, property binding sends the updated value in parentCounter to childCounter -->
+
 <app-first-child [childCounter]="parentCounter" (textChanged)="processChangeFromChild($event)" (counterChanged)="parentCounter=$event"></app-first-child>
 
