@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Component } from '@angular/core';
 import { Hero } from './hero';
-import { LocalAPIService } from './localAPIService';
+import { LocalAPIService } from './localAPI.service';
 
 
 @Component({
@@ -45,12 +45,12 @@ export class AppComponent {
     // This is done regardless of whether we are creating a new
     // Hero or modifying details of an existing one
     let newHero: Hero = {
-      id: this.heroForm.get('id')?.value,
-      firstName: this.heroForm.get('firstName')?.value,
-      lastName: this.heroForm.get('lastName')?.value,
-      age: this.heroForm.get('age')?.value,
+      id: <number> this.heroForm.get('id')?.value,
+      firstName: <string> this.heroForm.get('firstName')?.value,
+      lastName: <string> this.heroForm.get('lastName')?.value,
+      age: <number> this.heroForm.get('age')?.value,
       married: this.heroForm.get('maritalStatus')?.value === 'M',
-      job: this.heroForm.get('job')?.value
+      job: <string> this.heroForm.get('job')?.value
     };
 
     console.log('Created a new Hero object from form input : ', newHero);
