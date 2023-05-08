@@ -1,2 +1,2 @@
-# Angular with Basic Unit Testing Workshop
+# Front-end Web Application Development with Angular
 Nov 2022
