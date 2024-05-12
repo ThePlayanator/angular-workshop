@@ -18,12 +18,13 @@
     <h4>Jobs</h4>
     <button type="button" (click)="addJob()">Add info for new job</button>
 
-    <!-- Use ngFor to iterate over the individual FormGroup items
+    <!-- Use @for to iterate over the individual FormGroup items
     within the main FormArray object -->
-    <div *ngFor="let job of jobs.controls; let jobIndex = index">
+    @for (job of jobs.controls; track job; let jobIndex = $index) {
 
-<!--       Bind the index of the ngFor loop to the 
-      formGroupName directive to keep track of the FormGroup items stored in the main FormArray object -->
+      <!-- Bind the index of the @for loop to the 
+      formGroupName directive to keep track of the FormGroup items stored 
+      in the main FormArray object -->
       <div [formGroupName]="jobIndex">
         <p>Job # {{jobIndex + 1}}</p> 
         
@@ -42,10 +43,14 @@
 
       </div>
 
-    </div>
+
+
+    }    
+
+
   </div>
 
   <button type="submit">Submit</button>
   <br>
 
-</form>
+</form>  

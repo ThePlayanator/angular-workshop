@@ -17,7 +17,10 @@
 
 <button (click)="toggleChildDisplay()">{{toggleMessage}}</button>
 
+@if (showChild) {
 
-<!-- Binding parent property to child property that has @Input decorator -->
+  <!-- Binding parent property to child property that has @Input decorator -->
 <!-- Event binding with target event being property from child with @Output decorator -->
-<app-first-child *ngIf="showChild" [childCounter]="parentCounter" (textChanged)="processChangeFromChild($event)"></app-first-child>
+  <app-first-child [childCounter]="parentCounter" (textChanged)="processChangeFromChild($event)"></app-first-child>
+}
+

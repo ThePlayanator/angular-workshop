@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
-
-
 export class AppComponent {
-  
+
   processFirstName(event: Event) {
+
+    // Approach #1 syntax to cast event.target to a different class 
     let hie = (<HTMLInputElement> event.target);
     console.log("The name attribute is : ", hie.name);
     console.log("The type attribute is : ", hie.type);
@@ -18,7 +21,8 @@ export class AppComponent {
   }
 
   processNormalButton(event: Event) {
-    // Alternative way of casting:
+
+    // Approach #2 syntax to cast event.target to a different class 
     let be = event.target as HTMLButtonElement;
     console.log("The button type is : " + be.type);
     console.log("Button name is  : " + be.name);
@@ -31,7 +35,6 @@ export class AppComponent {
     console.log("Is the checkbox checked : " + hie.checked);
   }
 
+
+
 }
-
-
-

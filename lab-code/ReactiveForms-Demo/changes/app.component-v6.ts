@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { RouterOutlet } from '@angular/router';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, ReactiveFormsModule ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent {
 
-// Create a new FormGroup with nested FormControls and also
-// a nested FormGroup
+  // Create a new FormGroup with nested FormControls and also
+  // a nested FormGroup
   profileForm = new FormGroup({
 
     // A non-empty string is required, with a minimum length of 3 characters
@@ -33,5 +36,7 @@ export class AppComponent {
   onSubmit() {
     console.log(this.profileForm.value);
   }
+
+
 
 }

@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, Output  } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-first-child',
+  standalone: true,
+  imports: [],
   templateUrl: './first-child.component.html',
-  styleUrls: ['./first-child.component.css']
+  styleUrl: './first-child.component.css'
 })
 export class FirstChildComponent {
 
@@ -17,7 +19,6 @@ export class FirstChildComponent {
   a method in the parent component  */
   @Output() 
   textChanged: EventEmitter<string> = new EventEmitter();
-
 
   processTextChange(value: string) {
     this.textChanged.emit(value);

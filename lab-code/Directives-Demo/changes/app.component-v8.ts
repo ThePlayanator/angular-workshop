@@ -1,11 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 import { Employee } from './Employee';
+import { EmployeeComponent } from './employee/employee.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, FormsModule, EmployeeComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent {
 
   rowToHighlight: number = -1;
@@ -20,5 +27,4 @@ export class AppComponent {
     this.employees.push(new Employee("Scot",27,false));
     this.employees.push(new Employee("Noah",50,true));
   }
-
 }

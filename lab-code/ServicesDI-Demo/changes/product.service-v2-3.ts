@@ -1,12 +1,9 @@
 import { Product } from './product'
 import { Injectable } from '@angular/core';
 
-// There are multiple options for providing the
-// dependency / service
-// Option 3: Specify where the service will be  
-// provided in via the @Injectable decorator in the   
-// service itself. By default, this will be in the 
-// root module
+// Using the @Injectable option at the root level
+// creates a single, shared instance of this service   
+// which is injected into any class that asks for it 
 @Injectable({
     providedIn: 'root'
 })

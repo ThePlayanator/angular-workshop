@@ -1,11 +1,14 @@
-import { Component, EventEmitter, Input, Output  } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-first-child',
+  standalone: true,
+  imports: [],
   templateUrl: './first-child.component.html',
-  styleUrls: ['./first-child.component.css']
+  styleUrl: './first-child.component.css'
 })
 export class FirstChildComponent {
+
 
 /*   All properties marked with @Input will be bound 
   to a parent component property and receive data from it */
@@ -37,5 +40,6 @@ export class FirstChildComponent {
     this.childCounter--;
     this.counterChanged.emit(this.childCounter);
   }
+
 
 }

@@ -1,4 +1,3 @@
-
 import {
   AfterContentChecked,
   AfterContentInit,
@@ -12,20 +11,23 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges
 } from '@angular/core';
+
 
 @Component({
   selector: 'app-first-child',
+  standalone: true,
+  imports: [],
   templateUrl: './first-child.component.html',
-  styleUrls: ['./first-child.component.css']
+  styleUrl: './first-child.component.css'
 })
+
 export class FirstChildComponent implements
   OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked,
   AfterViewInit, AfterViewChecked,
   OnDestroy {
-
+    
   @Input() childCounter: number = 0;
   @Output() textChanged: EventEmitter<string> = new EventEmitter();
 
@@ -73,5 +75,6 @@ export class FirstChildComponent implements
   ngOnDestroy() {
     console.log("FirstChildComponent:ngOnDestroy");
   }
+
 
 }

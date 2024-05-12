@@ -2,14 +2,19 @@
 
 <p>Value of parent counter : {{parentCounter}}</p>
 
-<!-- We now call the methods in the child component instead -->
-<!-- The methods of the same name in parent component are no longer needed -->
+<!-- We now directly call the methods in the child component instead -->
+<!-- The methods of the same name in parent component are no longer needed
+     since this functionality is performed by the child component methods -->
 <button (click)="myChild.incCounter()">Increment</button>
 <button (click)="myChild.decCounter()">Decrement</button>
 
+<!-- Directly access a property from the child component
+Removes the need to emit an output event containing that property
+as we did earlier -->
 <p>Text from child : {{myChild.childText}}</p>
 
 <!-- Removed the textChanged event binding from the child component -->
+<!-- Use the myChild template reference variable to directly access the child component -->
 
 <app-first-child #myChild [childCounter]="parentCounter" (counterChanged)="parentCounter=$event"></app-first-child>
 

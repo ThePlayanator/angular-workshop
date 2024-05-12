@@ -17,14 +17,18 @@ to handle all validation for the form data -->
 
     
   <!-- Validation error message for first name -->
-  <div *ngIf='firstname?.invalid && (firstname?.dirty || firstname?.touched)' style="color:red">
-    <div *ngIf="firstname?.errors?.['required']">
-      First name is required.
-    </div>
-    <div *ngIf="firstname?.errors?.['minlength']">
-      First name must be at least 3 characters long.
-    </div>
-  </div>
+  @if ( firstname?.invalid && (firstname?.dirty || firstname?.touched) ) {
+
+    @if (firstname?.errors?.['required'] ) {
+      <p class="errorMessage">First name is required</p>
+    }
+
+    @if (firstname?.errors?.['minlength'] ) {
+      <p class="errorMessage">First name must be at least 3 characters long.</p>
+    }
+
+  }  
+
 
   <p>
     <label for="lastname">Last Name </label>
@@ -32,14 +36,18 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for last name -->
-  <div *ngIf='lastname?.invalid && (lastname?.dirty || lastname?.touched)' style="color:red">
-    <div *ngIf="lastname?.errors?.['required']">
-      Last name is required.
-    </div>
-    <div *ngIf="lastname?.errors?.['maxlength']">
-      Last name cannot be more than 6 characters long.
-    </div>
-  </div>
+  @if ( lastname?.invalid && (lastname?.dirty || lastname?.touched) ) {
+
+    @if (lastname?.errors?.['required'] ) {
+      <p class="errorMessage">Last name is required</p>
+    }
+
+    @if (lastname?.errors?.['maxlength'] ) {
+      <p class="errorMessage">Last name cannot be more than 6 characters long.</p>
+    }
+
+  }  
+
 
   <p>
     <label for="email">Email </label>
@@ -47,14 +55,17 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for email -->
-  <div *ngIf='email?.invalid && (email?.dirty || email?.touched)' style="color:red">
-    <div *ngIf="email?.errors?.['required']">
-      Email is required.
-    </div>
-    <div *ngIf="email?.errors?.['email']">
-      Email is incorrect format
-    </div>
-  </div>  
+  @if ( email?.invalid && (email?.dirty || email?.touched) ) {
+
+    @if (email?.errors?.['required'] ) {
+      <p class="errorMessage">Email is required</p>
+    }
+
+    @if (email?.errors?.['email'] ) {
+      <p class="errorMessage">Email is in incorrect format.</p>
+    }    
+
+  }
 
   <p>
     <label for="age">Age </label>
@@ -62,17 +73,21 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for age -->
-  <div *ngIf='age?.invalid && (age?.dirty || age?.touched)' style="color:red">
-    <div *ngIf="age?.errors?.['required']">
-      Age is required.
-    </div>
-    <div *ngIf="age?.errors?.['min']">
-      Age cannot be less than 18
-    </div>
-    <div *ngIf="age?.errors?.['max']">
-      Age cannot be more than 70
-    </div>    
-  </div>  
+  @if ( age?.invalid && (age?.dirty || age?.touched) ) {
+
+    @if (age?.errors?.['required'] ) {
+      <p class="errorMessage">Age is required</p>
+    }
+
+    @if (age?.errors?.['min'] ) {
+      <p class="errorMessage">Age cannot be less than 18</p>
+    }
+    
+    @if (age?.errors?.['max'] ) {
+      <p class="errorMessage">Age cannot be more than 70</p>
+    }  
+
+  }
 
   <p>
     <label for="job">Job </label>

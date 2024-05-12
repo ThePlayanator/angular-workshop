@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { RouterOutlet } from '@angular/router';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, ReactiveFormsModule, CommonModule ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent {
 
-// Create a new FormGroup with nested FormControls and also
-// a nested FormGroup
+  // Create a new FormGroup with nested FormControls and also
+  // a nested FormGroup
   profileForm = new FormGroup({
 
     firstname: new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -46,6 +50,7 @@ export class AppComponent {
   get age() { return this.profileForm.get('age'); }
 
   get job() { return this.profileForm.get('job'); }
+
 
 
 }

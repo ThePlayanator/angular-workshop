@@ -3,10 +3,12 @@ import { BasicService } from '../basic.service';
 
 @Component({
   selector: 'app-first-child',
+  standalone: true,
+  imports: [],
   templateUrl: './first-child.component.html',
-  styleUrls: ['./first-child.component.css']
+  styleUrl: './first-child.component.css'
 })
-export class FirstChildComponent  {
+export class FirstChildComponent {
 
   tempVal = 0;
 
@@ -19,5 +21,6 @@ export class FirstChildComponent  {
   getValFromService(){
     this.tempVal = this.basicService.getNum();
   }
+
 
 }

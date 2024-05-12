@@ -1,4 +1,9 @@
 
+.errorMessage {
+    color: red;
+    font-style: italic;
+}
+
 /* If we use the rule below, it will apply to all the borders of all 
 input fields including the top level <form> element itself */
 

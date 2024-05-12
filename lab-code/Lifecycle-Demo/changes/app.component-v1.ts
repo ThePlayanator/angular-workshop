@@ -1,4 +1,3 @@
-
 import {
   AfterContentChecked,
   AfterContentInit,
@@ -6,25 +5,25 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
-  Input,
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges
 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent implements
 OnChanges, OnInit, DoCheck,
 AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked,
 OnDestroy
 {
-
   numDoCheck = 1;
   numAfterContentChecked = 1;
   numAfterViewChecked = 1;

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
 
@@ -11,10 +14,6 @@ export class AppComponent {
 
   getTextColor() {
     return "red";
-  }
-
-  getStyleStrings() {
-    return ""
   }
 
   // Approach #1: A string containing style properties separated by ;
@@ -27,4 +26,6 @@ export class AppComponent {
     "border-radius": "8px",
     width: "200px",
   }
+
+
 }

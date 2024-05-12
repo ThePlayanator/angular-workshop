@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { RouterOutlet } from '@angular/router';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, ReactiveFormsModule ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   // Declaring a new FormControl class instance
   firstName = new FormControl('');
 
@@ -16,4 +19,5 @@ export class AppComponent {
     // setValue() method updates the value of the form control 
     this.firstName.setValue('Superman');
   }
+
 }

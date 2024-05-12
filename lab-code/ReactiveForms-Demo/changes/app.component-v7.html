@@ -12,9 +12,9 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for first name -->
-  <div *ngIf='profileForm.get("firstname")?.invalid'>
-    First name is invalid
-  </div>
+  @if ( profileForm.get("firstname")?.invalid ) {
+    <p>First name is invalid</p>
+  }
 
   <p>
     <label for="lastname">Last Name </label>
@@ -22,9 +22,10 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for last name -->
-  <div *ngIf='profileForm.get("lastname")?.invalid'>
-    Last name is invalid
-  </div>
+  @if ( profileForm.get("lastname")?.invalid ) {
+    <p>Last name is invalid</p>
+  }
+
 
   <p>
     <label for="email">Email </label>
@@ -32,9 +33,10 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for email -->
-  <div *ngIf='profileForm.get("email")?.invalid'>
-    Email is invalid
-  </div>  
+  @if ( profileForm.get("email")?.invalid ) {
+    <p>Email is invalid</p>
+  }
+
 
   <p>
     <label for="age">Age </label>
@@ -42,9 +44,10 @@ to handle all validation for the form data -->
   </p>
 
   <!-- Validation error message for age -->
-  <div *ngIf='profileForm.get("age")?.invalid'>
-    Age is invalid
-  </div>  
+  @if ( profileForm.get("age")?.invalid ) {
+    <p>Age is invalid</p>
+  }
+
 
   <p>
     <label for="job">Job </label>
@@ -53,7 +56,6 @@ to handle all validation for the form data -->
 
   <!-- No validation error message for job since this has no 
   validator function associated with it -->
-
 
   <button type="submit">Submit</button>
   <br>

@@ -5,29 +5,32 @@
 
   <!-- Creating Radio buttons -->
   <p>Select your favourite programming language:</p>
-  <div *ngFor="let language of languages">
+  @for (language of languages; track language) {
     <label>
       <input type="radio"
       formControlName="favlanguage" [value]="language">
       {{language}}
     </label>
-  </div>
+  }
 
-    <!-- Creating Drop down list options -->
-    <p>Select your favourite country :</p>
+  <!-- Creating Drop down list options -->
+  <p>Select your favourite country :</p>
   <select formControlName="favcountry">
-    <option [value]="country" *ngFor="let country of countries">         
-      {{country}}
-    </option>
+    @for (country of countries; track country) {
+      <option [value]="country">         
+        {{country}}
+      </option>
+    }
   </select>
 
   <!-- Creating check boxes -->
   <p>Select your favourite cars :</p>
-
-  <div formArrayName="favcars" *ngFor="let car of favcars.controls; let i = index">
-    <input type="checkbox" [formControlName]="i">
-    {{carsData[i].name}}
-  </div>
+  @for (car of favcars.controls; track car;let i = $index) {
+    <div formArrayName="favcars">
+      <input type="checkbox" [formControlName]="i">
+      {{carsData[i].name}}
+    </div>
+  }
 
   <br>
   <br>

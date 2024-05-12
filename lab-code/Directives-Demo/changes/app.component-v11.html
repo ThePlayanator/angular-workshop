@@ -1,28 +1,27 @@
-<h1> Demonstrating ngSwitchCase </h1>
+<h1> Employee app </h1>
+
+<button type="button" (click)="flipTableStatus()">{{buttonMessage}}</button>
+<br>
+<br>
 
 
-<label for="animal">Animal name : </label>
-<input type="text" id="animal" name="animal" [(ngModel)]="animal">
-
-<div [ngSwitch]="animal">
-    <p *ngSwitchCase="'cat'">Thats a moody one !</p>
-    <p *ngSwitchCase="'dog'">Thats a furry one !</p>
-    <p *ngSwitchCase="'tiger'">Thats a dangerous one !</p>
-    <p *ngSwitchDefault>Never heard of that animal before</p>
-</div>
-
-
-<label for="cars">Choose a car:</label>
-
-<select [(ngModel)]="selectedCar">
-    <option *ngFor="let car of cars;" [value]="car">{{car}}</option>
-  </select>
-
-<div [ngSwitch]="selectedCar">
-    <p *ngSwitchCase="'Jaguar'">Thats a British car !</p>
-    <p *ngSwitchCase="'Toyota'">Thats a Japanese car !</p>
-    <p *ngSwitchCase="'Renault'">Thats a French car !</p>
-    <p *ngSwitchCase="'Mercedes'">Thats a German car !</p>
-    <p *ngSwitchDefault>Never heard of that car before</p>
-</div>
-
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Marital Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="showTable">
+            <tr *ngFor="let emp of employees;let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.age}}</td>
+                <td>{{emp.isMarried ? 'married':'single'}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
