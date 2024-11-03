@@ -1,26 +1,38 @@
 <h1> My first Angular app </h1>
 
+<!-- Normal event binding to a component method
+which stores the value of the textbox in a property -->
+<label for="firstbox">First text box: </label>
+<input #firstbox type="text" id="firstbox" (input)="processFirstBox(firstbox)">
+<br>
+<!-- Access the component property that stores the value of the textbox
+ -->
+ <p>Contents of first textbox: {{firstTextBox}}</p>
+
 <!-- We use a dummy event binding here (keyup)="0" so that Angular's 
 change detection process is triggered in order to update the value 
 property of the HTMLInputElement referenced by the template variable
  -->
-<label for="firstbox">First text box:</label><br>
-<input #firstbox type="text" id="firstbox" name="firstbox" (keyup)="0">
+<label for="secondbox">Second text box : </label>
+<input #secondbox type="text" id="secondbox" (keyup)="0">
 
-<!-- Directly access the template variable in the template itself -->
-<p>Contents of first textbox: {{firstbox.value}}</p>
+<!-- Directly access the template variable in the template itself 
+without the need to store in template property first -->
+<p>Contents of second textbox: {{secondbox.value}}</p>
 
-<label for="secondbox">Enter text for the green button:</label><br>
-<input #secondbox type="text" id="secondbox" name="secondbox" (input)="processSecondBox(secondbox)">
+<label for="secondbox">Enter text for the green button : </label>
+<input #greenbox type="text" id="greenbox" (keyup)="0">
 
+<!-- For simple JavaScript expressions, we can place them into a template 
+expression directly in the template, instead of calling a component method -->
 <button type="button" (click)="isDisabled = !isDisabled">Click to disable / enable green button </button>
 <br>
 <br>
-<button type="button" class="bigbutton" [disabled]="isDisabled" (click)="firstbox.value=''">{{greenButtonText}}</button>
+<button type="button" class="bigbutton" [disabled]="isDisabled" (click)="firstbox.value=''">{{greenbox.value}}</button>
 <br>
 <br>
-<label for="thirdbox">Enter animal that you want to view :</label><br>
-<input #thirdbox type="text" id="thirdbox" name="thirdbox" (input)="processThirdBox(thirdbox)">
+<label for="animalbox">Enter animal that you want to view : </label>
+<input #animalbox type="text" id="animalbox" (input)="processAnimalBox(animalbox)">
 <br>
 <br>
 <img [src]="'/assets/' + imageName + '.jpg'" alt="some animal" />

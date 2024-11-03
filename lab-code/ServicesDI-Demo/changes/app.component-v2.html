@@ -1,0 +1,11 @@
+<h1>Purchase order page</h1>
+
+<p>Price of product: RM {{ price }}</p>
+
+<label for="numitems">Number of items to purchase: </label>
+<input #numitems type="text" id="numitems">
+
+<button type="button" (click)="computeFinalPrice(numitems.value)">Calculate final price</button>
+
+<p>{{finalPriceMessage}}</p>
+

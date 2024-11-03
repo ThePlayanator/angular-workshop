@@ -1,24 +1,12 @@
-<h1>Demonstrating Services</h1>
+<h1>Purchase order page</h1>
 
-<button type="button" (click)="getProducts()">Get Products</button>
+<p>Price of product: RM {{ price }}</p>
+<p>Sales tax is currently: {{ SST }} %</p>
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-          @for (product of products; track product) {
-            <tr>
-              <td>{{product.productID}}</td>
-              <td>{{product.name}}</td>
-              <td>{{product.price}}</td>
-            </tr>
-          }
-        </tbody>
-    </table>
-</div>
+<label for="numitems">Number of items to purchase: </label>
+<input #numitems type="text" id="numitems">
+
+<button type="button" (click)="calcTotalPrice(numitems.value)">Calculate final price</button>
+
+<p>{{finalPriceMessage}}</p>
+

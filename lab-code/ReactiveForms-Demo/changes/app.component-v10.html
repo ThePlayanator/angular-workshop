@@ -13,22 +13,13 @@
     </label>
   }
 
-  <!-- Creating Drop down list options -->
-  <p>Select your favourite country :</p>
-  <select formControlName="favcountry">
-    @for (country of countries; track country) {
-      <option [value]="country">         
-        {{country}}
-      </option>
-    }
-  </select>
 
   <!-- Creating check boxes -->
   <p>Select your favourite cars :</p>
   @for (car of favcars.controls; track car;let i = $index) {
     <div formArrayName="favcars">
       <input type="checkbox" [formControlName]="i">
-      {{carsData[i].name}}
+      {{carNames[i]}}
     </div>
   }
 

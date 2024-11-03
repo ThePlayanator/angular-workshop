@@ -1,0 +1,11 @@
+<h1>Parent component</h1>
+<label for="pstring">Enter new value for parent string :</label><br>
+<input #textinput type="text" id="pstring" (keyup)="0">
+<br>
+<button type="button" (click)="parentString = textinput.value">Set new value for parent string</button>
+<br>
+
+<p>Parent string : {{ parentString }} </p>
+
+<p>String received from great grant child : {{ firstStringFromGreatGrandChild }}</p>
+<app-child [tempString]="parentString" (textChanged)="processChangeFromChild($event)"></app-child>

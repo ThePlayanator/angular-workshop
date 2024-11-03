@@ -1,11 +1,13 @@
 <h1> My first Angular app </h1>
 
-<!-- Single style binding example -->
-<button [style.font-size.%]="isSpecial ? 200 : 50" >Resize me !</button>
+<!-- Single style binding referencing a component property -->
+<p [style.font-family]="favFont">The first paragraph</p>
 
-<!-- Single style binding example -->
-<p [style.color]="getTextColor()">The first paragraph</p>
+<!-- Single style binding referencing a component method -->
+<p [style.color]="getTextColor()">The second paragraph</p>
 
+<!-- Single style binding demonstrating ternary operator expression -->
+<p [style.font-size.%]="isSpecial ? 200 : 50" >The third paragraph</p>
 <br>
 
 <!-- Multiple style binding example -->

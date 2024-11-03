@@ -3,7 +3,7 @@
 <!-- Standard banana-in-the-box syntax using ngModel 
 to perform two way binding -->
 <label for="secondbox">Second text box:</label><br>
-<input type="text" id="secondbox" name="secondbox" [(ngModel)]="secondBoxContent">
+<input type="text" id="secondbox" [(ngModel)]="secondBoxContent">
 
 <p>Value of secondBoxContent : {{secondBoxContent}}</p>
 
@@ -12,7 +12,7 @@ to perform two way binding -->
     value in the property
 -->
 <label for="thirdbox">Third text box:</label><br>
-<input type="text" id="thirdbox" name="thirdbox" [ngModel]="thirdBoxContent" (ngModelChange)="processThirdBox($event)">
+<input type="text" id="thirdbox" [ngModel]="thirdBoxContent" (ngModelChange)="processThirdBox($event)">
 
 <p>Value of thirdBoxContent : {{thirdBoxContent}}</p>
 

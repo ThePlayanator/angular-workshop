@@ -1,0 +1,13 @@
+<section>
+    <h3>Boring news</h3>
+    <p>Do you know that most JavaScript frameworks are boring ?</p>
+
+<!--     Note that we use a relative route path here with '../exciting' 
+    to ensure that we go back up one level to 
+    http://localhost:4200/news/exciting/ExpressJS
+    Otherwise using 'exciting' will direct us to 
+    http://localhost:4200/news/boring/exciting/ExpressJS 
+    which results in an unmatched route -->
+
+    <p>To know more about exciting JavaScript frameworks, follow <a [routerLink]="['../exciting', coolFramework]">Exciting news</a></p>    
+</section>

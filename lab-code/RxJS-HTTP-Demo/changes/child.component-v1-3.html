@@ -1,0 +1,7 @@
+<h2>Child component</h2>
+
+<!-- The property binding and event binding below
+only serves to convey values between the parent component
+and the destination great grand child component in the hierarchy -->
+
+<app-grand-child [tempString]="tempString" (textChanged)="processChangeFromChild($event)"></app-grand-child>

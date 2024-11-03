@@ -1,0 +1,14 @@
+<section>
+    <h2>News</h2>
+    <p>
+        What kind of news are you interested in ?
+    </p>    
+    
+    <ul>
+        <li><a routerLink="boring">Boring news</a></li>
+        <li><a [routerLink]="['exciting', myFavFramework]">Exciting news</a></li>
+    </ul>    
+    <router-outlet></router-outlet>
+
+</section>
+

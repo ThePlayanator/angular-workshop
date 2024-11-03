@@ -1,0 +1,21 @@
+<section>
+  <h2>Hero</h2>
+
+  <a routerLink="/home">Select another hero</a>
+
+  <h4>More info on the hero you selected</h4>
+  
+  <p>{{ errorMessageforSingleHero }}</p>
+  
+  @if (singleHero) {
+    <div>
+      <p>ID : {{singleHero.id}} </p>
+      <p>First Name : {{singleHero.firstName}} </p>
+      <p>Last Name : {{singleHero.lastName}} </p>
+      <p>Age : {{singleHero.age}} </p>
+      <p>Married : {{singleHero.married}} </p>
+      <p>Job : {{singleHero.job}} </p>
+  </div>
+  }
+
+</section>

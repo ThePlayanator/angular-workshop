@@ -1,0 +1,21 @@
+<section>
+    <h2>Contact</h2>
+    <p>This are the people you can contact if you wish</p>
+    <ul>
+<!--         The next 2 links specify the queryParams as objects directly in the 
+        HTML -->
+        <li><a [routerLink]="['/about']" [queryParams]="{ person : 'salesperson' }">Contact salesperson</a></li>
+        <li><a [routerLink]="['/about']" [queryParams]="{ person : 'manager' }">Contact manager</a></li>
+
+<!--         The next 2 links specify the queryParams which reference objects declared in the component -->
+
+        <li><a [routerLink]="['/about']" [queryParams]="queryParamObj1">Contact project engineer</a></li>
+        <li><a [routerLink]="['/about']" [queryParams]="queryParamObj2">Contact systems engineer</a></li>
+
+    </ul>  
+
+    
+
+</section>
+
+

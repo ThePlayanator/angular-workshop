@@ -1,0 +1,23 @@
+<section>
+    <h2>Home</h2>
+    <p>
+        These are the heros that are associated with us
+        <br>
+        Select one of them to find out more about how cool they are !
+        <br>
+    </p>    
+    
+    <ul>
+        @for (hero of heroes; track hero) {
+
+<!--           Add the dynamic router parameters at end of the main 
+          prefix using directive binding to the routerLink -->  
+
+          <li><a [routerLink]="['/hero', hero.id, hero.firstname]">{{hero.firstname}}</a></li>
+
+        }
+    </ul>    
+
+</section>
+
+

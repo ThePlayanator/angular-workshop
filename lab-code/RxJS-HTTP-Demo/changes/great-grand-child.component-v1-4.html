@@ -1,0 +1,15 @@
+<h3>Great grand child component</h3>
+
+<p>First string received from parent is : {{ firstStringFromParent }} </p>
+
+<p>Second string received from parent is : {{ secondStringFromParent }} </p>
+
+
+<label for="pstring">Enter new value for great grand child string :</label><br>
+<input #textinput type="text" id="pstring" (keyup)="0">
+<br>
+<button type="button" (click)="processTextChange(textinput.value)">Set new value for great grand child string</button>
+<br>
+
+<p>Great grand child string : {{ greatGrandChildString }} </p>
+

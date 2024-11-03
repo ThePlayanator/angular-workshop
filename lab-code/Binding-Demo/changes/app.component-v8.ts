@@ -10,23 +10,25 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  greenButtonText = "Change me !";
-  imageName = "cat";
-  animalNames = ['cat','dog','horse'];
-
   // for controlling dynamic binding of classes
   isItDangerous = false;
   isItSpecial = false;
   isItLarge = false;
 
-  // for controlling status of button
+  // for controlling disabled status of green button
   isDisabled = false;
-  
-  processSecondBox(hie: HTMLInputElement) {
-    this.greenButtonText = hie.value;
+
+  // to store contents of first text box
+  firstTextBox = "";
+
+  processFirstBox(hie: HTMLInputElement) {
+    this.firstTextBox = hie.value;
   }
 
-  processThirdBox(hie: HTMLInputElement) {
+  imageName = "cat";
+  animalNames = ['cat','dog','horse'];
+
+  processAnimalBox(hie: HTMLInputElement) {
     for (const name of this.animalNames) {
       if (hie.value === name)
         this.imageName = name;

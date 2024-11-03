@@ -1,0 +1,19 @@
+<section>
+    <h2>Home</h2>
+    <p>We have many heroes associated with us</p>
+    <p>Provide some info about that hero to get more details on them</p>
+
+    <label for="heroidbox">Hero id : </label>
+    <input type="text" id="heroidbox"  [(ngModel)]="heroId">     
+    <br>   
+    <br>   
+
+    <label for="heronamebox">Hero name : </label>
+    <input type="text" id="heronamebox"  [(ngModel)]="heroName"> 
+    <br>   
+    <br>     
+
+    <button type="button"(click)="navigateToHero()">Show me my hero ! </button>
+</section>
+
+

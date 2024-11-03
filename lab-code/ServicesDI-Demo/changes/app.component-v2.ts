@@ -1,34 +1,29 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductService } from './product.service';
-import { Product } from './product';
+import { TaxCalculatorService } from './tax-calculator.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  
-  // Registering the service directly 
-  // in the component itself 
-  // via the providers array metadata
-  
-  providers: [ProductService],
+  styleUrl: './app.component.css'
 })
-
 export class AppComponent {
 
-  products: Product[] = [];
-
-/*   We use constructor injection as the mechanism
+  /*   We use constructor injection as the mechanism
   to introduce the service (or dependency) into 
   the class */
-  constructor(private productService: ProductService) {
+  constructor(private taxCalcService: TaxCalculatorService) {
   }
 
-  getProducts() {
-    this.products = this.productService.getProducts();
+  price = 10;
+
+  finalPriceMessage = "";
+
+  computeFinalPrice(items: string) {
+    let finalPrice = this.taxCalcService.calcTotalPrice(parseInt(items), this.price);
+    this.finalPriceMessage = "The final price is RM " + finalPrice; 
   }
 
 }

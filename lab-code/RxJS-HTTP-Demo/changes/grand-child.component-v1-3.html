@@ -1,0 +1,7 @@
+<h3>Grand child component</h3>
+
+<!-- The property binding and event binding below
+only serves to convey values between the parent component
+and the destination great grand child component in the hierarchy -->
+
+<app-great-grand-child [firstStringFromParent]="tempString" (textChanged)="processChangeFromChild($event)"></app-great-grand-child>
