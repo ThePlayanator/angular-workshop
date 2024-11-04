@@ -1,8 +1,31 @@
 <h1> My first Angular app </h1>
 
-<!-- Single binding adds a class, but does not remove the existing one -->
-<p class="medium" [class.safe]="isThisForReal">The first paragraph</p>
+<!-- Multiple binding adds two new classes, but does not remove the existing one -->
+<p class="large" [class]="stringOfClasses">The first paragraph</p>
 
-<!-- Single binding can be used to remove the existing class, if they
-both have the same name -->
-<p class="large danger emphasize" [class.danger]="isItDangerous">The second paragraph</p>
+<!-- Multiple binding adds two new classes and removes an existing one -->
+<p class="large" [class]="classesToAdd">The second paragraph</p>
+
+<!-- Multiple binding adds three new classes 
+including one that has conflicting style rule with an existing class -->
+<p class="normal" [class]="classesInArray">The third paragraph</p>
+
+<!-- Question Class Binding Q1~Q4 -->
+ <div style="padding: 10px;">
+  <p class=borderStyle2 [class.borderColor2]="true" class="borderStyle1 borderColor1" [class.borderStyle2]="false" style="text-align: center;">Test</p>
+ </div>
+
+<!-- Question Class Binding (String of Classess)-->
+ <div style="padding: 10px;">
+  <p class="borderWidth1" [class]="stringOfDivClasses" style="text-align: center;">Test</p>
+ </div>
+
+ <!-- Question Class Binding (Object of Classess)-->
+<div style="padding: 10px;">
+  <p class="borderWidth2" [class]="classesDivToAdd" style="text-align: center;">Test</p>
+</div>
+
+<!-- Question Class Binding (Array of Classess)-->
+<div style="padding: 10px;">
+  <p class="borderWidth2" [class]="classesDivInArray" style="text-align: center;">Test</p>
+</div>

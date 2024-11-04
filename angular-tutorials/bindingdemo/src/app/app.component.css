@@ -27,3 +27,27 @@
 .safe {
     color: green;
 }
+
+.borderStyle1{
+    border-style: inset;
+}
+
+.borderStyle2{
+    border-style: groove;
+}
+
+.borderColor1{
+    border-color: aqua;
+}
+
+.borderColor2{
+    border-color: yellowgreen;
+}
+
+.borderWidth1{
+    border-width: 5px;
+}
+
+.borderWidth2{
+    border-width: 10px;
+}
