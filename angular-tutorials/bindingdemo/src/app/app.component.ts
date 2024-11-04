@@ -9,5 +9,19 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'bindingdemo';
+
+  title = "Demonstrating property binding";
+  
+  isDisabled = true;
+
+  // possible values: cat, dog, horse
+  imageName = 'horse';
+
+  // possible values: www.cnn.com, www.bbc.com, etc
+  newsSite = 'www.w3schools.com';
+
+  socialMediaSite='www.tiktok.com';
+  
+  myOpenStyle='_blank';
+
 }
