@@ -10,18 +10,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  title = "Demonstrating property binding";
-  
-  isDisabled = true;
+  isThisForReal = true;
 
-  // possible values: cat, dog, horse
-  imageName = 'horse';
-
-  // possible values: www.cnn.com, www.bbc.com, etc
-  newsSite = 'www.w3schools.com';
-
-  socialMediaSite='www.tiktok.com';
-  
-  myOpenStyle='_blank';
+  isItDangerous = false;
 
 }

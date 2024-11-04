@@ -1,26 +1,8 @@
 <h1> My first Angular app </h1>
 
-<!-- Property binding to disabled property of button -->
-<button type="button" [disabled]="isDisabled">Is this clickable ?</button>
-<br>
-<br>
+<!-- Single binding adds a class, but does not remove the existing one -->
+<p class="medium" [class.safe]="isThisForReal">The first paragraph</p>
 
-<!-- Property binding to src property of img -->
-<img [src]="  '/assets/' + imageName + '.jpg'  " alt="some animal"/>
-<br>
-<br>
-
-<!-- Property binding to href property of a -->
-<a [href]="'https://' + newsSite" target="_blank">My favorite news site</a>
-<br>
-<!-- Q2 Property Binding-->
- <a [href]="'https://' + socialMediaSite" [target]="myOpenStyle"> My Favourite Social Media site</a>
-
- <!-- 
- This one interpolation 
- <a [href]="'https://' + socialMediaSite" target="{{ myOpenStyle }}"> My Favourite Social Media site</a>-->
-
- <!-- Difference between _blank & _self
-  _blank = open page on a new tab
-  _self = open page in the current tab
-  -->
+<!-- Single binding can be used to remove the existing class, if they
+both have the same name -->
+<p class="large danger emphasize" [class.danger]="isItDangerous">The second paragraph</p>
