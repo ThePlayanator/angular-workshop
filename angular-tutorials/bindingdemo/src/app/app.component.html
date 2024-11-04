@@ -14,7 +14,11 @@
 <a [href]="'https://' + newsSite" target="_blank">My favorite news site</a>
 <br>
 <!-- Q2 Property Binding-->
- <a [href]="'https://' + socialMediaSite" target="{{ myOpenStyle }}"> My Favourite Social Media site</a>
+ <a [href]="'https://' + socialMediaSite" [target]="myOpenStyle"> My Favourite Social Media site</a>
+
+ <!-- 
+ This one interpolation 
+ <a [href]="'https://' + socialMediaSite" target="{{ myOpenStyle }}"> My Favourite Social Media site</a>-->
 
  <!-- Difference between _blank & _self
   _blank = open page on a new tab
