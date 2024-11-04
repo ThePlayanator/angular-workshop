@@ -10,38 +10,32 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  // Approach #1: A space-delimited string of class names
-  // Classess are separated by space
-  stringOfClasses = "special safe";
+  favFont = "Courier, monospace";
+  cursive = "Cursive";
 
-  stringOfDivClasses = "borderStyle1 borderColor1";
+  isSpecial = true;
+  divBox1="border-color: aqua; border-style: groove; border-width: 10px; text-align: center;"
 
-  // Approach #2: An  object with class names as the keys and 
-  // truthy or falsy expressions as the values
-  classesToAdd = {
-    large : false,
-    special : this.stringOfClasses.length > 2,
-    danger :  this.alwaysReturnTrue ()
-  };
-
-  classesDivToAdd = {
-    borderWidth2 : false,
-    borderStyle2 : this.stringOfClasses.length > 2,
-    borderColor2 :  this.alwaysReturnTrue ()
-  };
-
-  // Approach #3: An array of class names
-  classesInArray = ['medium','emphasize','safe'];
-
-  classesDivInArray = ['borderColor2', 'borderStyle1', 'borderColor1']
-
-  alwaysReturnTrue () {
-    return true;
+  getTextColor() {
+    return "red";
   }
 
-  isThisForReal = true;
+  // Approach #1: A string containing style properties separated by ;
+  styleFirstImage = "float:left; width:100px; height:auto;"
 
-  isItDangerous = true;
+  // Approach #2: An object with style names as the keys and style values 
+  // as the values
+  styleSecondImage = {
+    border: "2px solid red",
+    "border-radius": "8px",
+    width: "200px",
+  }
+
+  divBox2 = {
+  border: "2px solid red",
+  "border-style": "inset",
+  "text-align": "center",
+  }
 
 
 }
