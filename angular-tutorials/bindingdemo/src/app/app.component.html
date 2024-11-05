@@ -1,20 +1,81 @@
 <h1> My first Angular app </h1>
 
-<!-- Template references variables for event binding -->
-<form>
-  <label for="tf1">First text field :</label><br>
-  <input #textinput type="text" id="tf1" (input)="processFirstTextField(textinput)">
+<!-- Normal event binding to a component method
+which stores the value of the textbox in a property -->
+<label for="firstbox">First text box: </label>
+<input #firstbox type="text" id="firstbox" (input)="processFirstBox(firstbox)">
+<br>
+<!-- Access the component property that stores the value of the textbox (interpolation binding)
+ -->
+ <p>Contents of first textbox: {{firstTextBox}}</p>
 
-  <br>
-  <br>
+<!-- We use a dummy event binding here (keyup)="0" so that Angular's 
+change detection process is triggered in order to update the value 
+property of the HTMLInputElement referenced by the template variable
+ -->
 
-  <input #languagebox type="checkbox" id="progLang" value="Angular" (input)="processCheckBox(languagebox)">
-  <label for="progLang"> I love Angular !</label>
-  
-  <br>
-  <br>
+ <!-- Angular only detect changes when theres event bindings on elements -->
 
-</form>
+<label for="secondbox">Second text box : </label>
+<input #secondbox type="text" id="secondbox" (keyup)="0">
 
+<!-- Directly access the template variable in the template itself 
+without the need to store in template property first -->
+<p>Contents of second textbox: {{secondbox.value}}</p>
+
+<label for="secondbox">Enter text for the green button : </label>
+<input #greenbox type="text" id="greenbox" (keyup)="0">
+
+<!-- For simple JavaScript expressions, we can place them into a template 
+expression directly in the template, instead of calling a component method -->
+<button type="button" (click)="isDisabled = !isDisabled">Click to disable / enable green button </button>
+<br>
+
+<br>
+<button type="button" class="bigbutton" [disabled]="isDisabled" (click)="firstbox.value=''">{{greenbox.value}}</button>
+<br>
+
+<br>
+<label for="animalbox">Enter animal that you want to view : </label>
+<input #animalbox type="text" id="animalbox" (input)="processAnimalBox(animalbox)">
+<br>
+
+<br>
+<img [src]="'/assets/' + imageName + '.jpg'" alt="some animal" />
+<br>
+
+<h4>Options for styling text</h4>
+<input type="checkbox" id="makeLarge" name="makeLarge" value="makeLarge" (input)="isItLarge=!isItLarge">
+<label for="makeLarge">Make it large</label><br>
+<input type="checkbox" id="makeSpecial" name="makeSpecial" value="makeSpecial" (input)="isItSpecial=!isItSpecial">
+<label for="makeSpecial">Make it special</label><br>
+<input type="checkbox" id="makeDangerous" name="makeDangerous" value="makeDangerous" (input)="isItDangerous=!isItDangerous">
+<label for="makeDangerous">Make it dangerous</label><br><br>
+<hr>
+
+<p [class.large]="isItLarge" [class.dangerous]="isItDangerous" [class.special]="isItSpecial">Text to style</p>
+
+<div>
+  <h5>CR Category</h5>
+<input type="checkbox" id="cosmetics" name="cosmetics" value="Cosmetics" (input)="isCosmetic=!isCosmetic; calculateValue()">
+<label for="cosmetics">Cosmetics</label><br>
+
+<input type="checkbox" id="newProduct" name="newProduct" value="newProduct" (input)="isProduct=!isProduct; calculateValue()">
+<label for="product">New Product</label><br>
+
+<input type="checkbox" id="others" name="others" value="others" (input)="isOthers=!isOthers; calculateValue()">
+<label for="others">Others</label><br><br>
+
+<h5>Total Value: {{ totalValue }}</h5>
+<h5>
+  Complexity:
+  <span [class.lowcomplex]="complexity === 'Low Complexity'" 
+        [class.medcomplex]="complexity === 'Medium Complexity'" 
+        [class.highcomplex]="complexity === 'High Complexity'">
+    {{ complexity }}
+  </span>
+</h5>
+
+</div>
 
 

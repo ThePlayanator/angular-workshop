@@ -1,53 +1,42 @@
-.normal {
+.bigbutton {
+    background-color: #4CAF50;
+    /* border: none; */
+    /* color: white; */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
+    border-radius: 12px;
+  }
+
+img {
+    width: 150px;
+    height : auto
 }
 
-.medium {
-    font-size: 30px;
 
-}
 
 .large {
-    font-size: 50px;
+    font-size: 30px;
 } 
 
 .special {
     font-style: italic;
 }
 
-.emphasize {
-    font-style: bold;
-}
-
-
-.danger {
+.dangerous {
     color: red;
 }
 
-.safe {
-    color: green;
+.lowcomplex {
+    color:green;
 }
 
-.borderStyle1{
-    border-style: inset;
+.medcomplex {
+    color: orange;
 }
 
-.borderStyle2{
-    border-style: groove;
-}
-
-.borderColor1{
-    border-color: aqua;
-}
-
-.borderColor2{
-    border-color: yellowgreen;
-}
-
-.borderWidth1{
-    border-width: 5px;
-}
-
-.borderWidth2{
-    border-width: 10px;
+.highcomplex {
+    color: red;
 }
