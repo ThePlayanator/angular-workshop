@@ -8,3 +8,14 @@
 
 <!-- Binding parent property to child property that has @Input decorator -->
 <app-first-child [childCounter]="parentCounter"></app-first-child>
+
+<div style="border: 2px solid black; padding: 10px;">
+  <!-- Q1 -->
+   <label for="name">Parent Input Field</label><br>
+   <input id="name" [(ngModel)]="name" placeholder="Enter your name">
+   <p>Hello, {{name}}</p>
+
+   <!-- Q3 -->
+   <app-first-child [getName]="name"></app-first-child>
+</div>
+

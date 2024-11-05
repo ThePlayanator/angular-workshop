@@ -12,4 +12,7 @@ export class FirstChildComponent {
   /*   All properties marked with @Input will be bound 
   to a parent component property and receive data from it */
   @Input() childCounter: number = 0;
+
+  // Q2
+  @Input() getName: string='';
 }
