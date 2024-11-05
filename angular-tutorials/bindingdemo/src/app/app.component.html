@@ -1,39 +1,18 @@
 <h1> My first Angular app </h1>
 
-<!-- These is event binding (input)-->
-
+<!-- Template references variables for event binding -->
 <form>
-
   <label for="tf1">First text field :</label><br>
-  <input type="text" id="tf1" (input)="processFirstTextField($event)">
-  
-  <br>
-  <br>
-
-  <label for="tf2">Second text field :</label><br>
-  <input type="text" id="tf2" (input)="processSecondTextField($event)">
+  <input #textinput type="text" id="tf1" (input)="processFirstTextField(textinput)">
 
   <br>
   <br>
 
-  <input type="checkbox" id="progLang" value="Angular" (input)="processCheckBox($event)">
+  <input #languagebox type="checkbox" id="progLang" value="Angular" (input)="processCheckBox(languagebox)">
   <label for="progLang"> I love Angular !</label>
   
   <br>
   <br>
-
-  <input type="radio" id="programming" name="subjects" value="Programming" (input)="processRadioButton($event)">
-  <label for="subjects">Programming</label>
-
-  <input type="radio" id="database" name="subjects" value="Database Design" (input)="processRadioButton($event)">
-  <label for="subjects">Database Design</label>
-
-  <input type="radio" id="testing" name="subjects" value="Software Testing" (input)="processRadioButton($event)">
-  <label for="subjects">Software Testing</label>
-
-
-  <br><br>
-  <button type="button" (click)="processNormalButton($event)">Click Me!</button>
 
 </form>
 
