@@ -1,38 +1,41 @@
 <h1> My first Angular app </h1>
 
-<!-- Single style binding referencing a component property -->
-<p [style.font-family]="favFont">The first paragraph</p>
+<!-- These is event binding (input)-->
 
-<!-- Single style binding referencing a component method -->
-<p [style.color]="getTextColor()">The second paragraph</p>
+<form>
 
-<!-- Single style binding demonstrating ternary operator expression -->
-<p [style.font-size.%]="isSpecial ? 200 : 50" >The third paragraph</p>
+  <label for="tf1">First text field :</label><br>
+  <input type="text" id="tf1" (input)="processFirstTextField($event)">
+  
+  <br>
+  <br>
 
-<!-- Style Binding Q1 -->
- <p [style.font-family]="cursive">Testing</p>
+  <label for="tf2">Second text field :</label><br>
+  <input type="text" id="tf2" (input)="processSecondTextField($event)">
 
- <!-- Style Binding Q2 -->
-<div>
-  <p [style]="divBox1">Testing testing</p>
-</div>
+  <br>
+  <br>
 
-<!-- Style Binding Q3 -->
-<div>
-  <p [style]="divBox2">Testing testing testing</p>
-</div>
+  <input type="checkbox" id="progLang" value="Angular" (input)="processCheckBox($event)">
+  <label for="progLang"> I love Angular !</label>
+  
+  <br>
+  <br>
 
-<br>
+  <input type="radio" id="programming" name="subjects" value="Programming" (input)="processRadioButton($event)">
+  <label for="subjects">Programming</label>
 
-<!-- Multiple style binding example -->
-<p><img src="/assets/cat.jpg" [style]="styleFirstImage" alt="some cat" >
-Cats are sooooo cute ....</p>
+  <input type="radio" id="database" name="subjects" value="Database Design" (input)="processRadioButton($event)">
+  <label for="subjects">Database Design</label>
 
-<br>
-<br>
-<br>
-<br>
+  <input type="radio" id="testing" name="subjects" value="Software Testing" (input)="processRadioButton($event)">
+  <label for="subjects">Software Testing</label>
 
-<!-- Multiple style binding example -->
-<img src="/assets/dog.jpg" [style]="styleSecondImage" alt="some dog"/>
+
+  <br><br>
+  <button type="button" (click)="processNormalButton($event)">Click Me!</button>
+
+</form>
+
+
 
