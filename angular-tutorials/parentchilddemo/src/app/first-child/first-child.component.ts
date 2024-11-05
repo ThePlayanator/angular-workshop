@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-first-child',
@@ -9,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class FirstChildComponent {
 
+  /*   All properties marked with @Input will be bound 
+  to a parent component property and receive data from it */
+  @Input() childCounter: number = 0;
 }

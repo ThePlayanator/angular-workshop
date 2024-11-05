@@ -1,4 +1,10 @@
 <h1>From the root component</h1>
 
+<p>Value of parent counter : {{parentCounter}}</p>
 
-<app-first-child></app-first-child>
+<button (click)="incCounter()">Increment</button>
+<button (click)="decCounter()">Decrement</button>
+
+
+<!-- Binding parent property to child property that has @Input decorator -->
+<app-first-child [childCounter]="parentCounter"></app-first-child>

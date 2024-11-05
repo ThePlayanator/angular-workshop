@@ -11,5 +11,15 @@ import { FirstChildComponent } from './first-child/first-child.component';
 })
 
 export class AppComponent {
-  title = 'parentchilddemo';
+  
+  parentCounter = 0;
+
+  incCounter() {
+    this.parentCounter++;
+  }
+
+  decCounter() {
+    this.parentCounter--;
+  }
+
 }
