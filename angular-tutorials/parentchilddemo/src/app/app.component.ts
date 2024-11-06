@@ -12,9 +12,11 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class AppComponent {
-
+  
   parentCounter = 0;
 
+  childText = '';
+  selectedColour: string=''
   incCounter() {
     this.parentCounter++;
   }
@@ -23,6 +25,13 @@ export class AppComponent {
     this.parentCounter--;
   }
 
-  // Q1
-  name: string ='';
+  processChangeFromChild(val: string) {
+    this.childText = val;
+  }
+  
+   // New event handler for color selection
+   processColourChange(colour: string) {
+    this.selectedColour = colour; // Store the selected color
+}
+
 }
