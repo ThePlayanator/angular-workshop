@@ -5,17 +5,17 @@
 <button (click)="incCounter()">Increment</button>
 <button (click)="decCounter()">Decrement</button>
 
-<p>Text from child : {{childText}}</p>
+<div style="border: 2px solid black; padding: 10px;">
+  <!-- Q1 -->
+   <label for="name">Parent Input Field</label><br>
+   <input type="text" id="name" [(ngModel)]="name" placeholder="Enter your name">
+   <p>Hello, {{name}}</p>
 
-<!-- Binding parent property to child property that has @Input decorator -->
-<!-- Event binding with target event being property from child with @Output decorator -->
+
+   <!-- Binding parent property to child property that has @Input decorator -->
 <app-first-child 
- [childCounter]="parentCounter"
- (textChanged)="processChangeFromChild($event)" 
- (favColour)="processColourChange($event)"> 
+[childCounter]="parentCounter"
+[getName]="name">
 </app-first-child>
 
-<!-- Q5 -->
-<p>Selected colour: {{selectedColour}}</p>
-
-<!-- Q3 -> (favColour) -->
+</div>

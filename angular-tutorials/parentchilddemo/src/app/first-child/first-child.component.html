@@ -2,19 +2,4 @@
 
 <p>Child counter is: {{childCounter}}</p>
 
-
-<label for="childbox">Child text box :</label><br>
-<input #textinput type="text" id="childbox" name="childbox" (input)="processTextChange(textinput.value)">
-
-<p>Value in text box: {{textinput.value}}</p>
-
-<!-- Q1 -->
- <div>
-    <p>Choose favourite colour</p>
-    <input #radioRed type="radio" id="red" name="fav_colour" value="RED" (change)="onSelectedColour('RED')">
-    <label for="red" style="color: red;">Red</label>
-
-    <input #radioBlue type="radio" id="blue" name="fav_colour" value="BLUE" (change)="onSelectedColour('BLUE')">
-    <label for="blue" style="color: blue;">Blue</label>
-
- </div>
+<p>The name is : {{ getName }}</p>
