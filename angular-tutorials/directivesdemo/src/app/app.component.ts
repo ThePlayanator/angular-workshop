@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Employee } from './Employee';
+import { EmployeeComponent } from './employee/employee.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, EmployeeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -15,8 +16,6 @@ import { Employee } from './Employee';
 export class AppComponent {
 
   employees: Employee[] = [];
-
-  message = '';
 
   // initializing array with 8 new objects
   constructor() {
@@ -30,12 +29,5 @@ export class AppComponent {
     this.employees.push(new Employee("William",29,false));
   }
 
-  showButtonInfo(pos: number) {
-    this.message = `You clicked button : ${pos} for ${this.employees[pos].name}`; 
-  }
 
-  changeName(buttonPos: string, newVal: string) {
-    this.employees[parseInt(buttonPos)].name = newVal;
-  }
-  
 }
