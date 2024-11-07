@@ -18,6 +18,11 @@ export class AppComponent {
 
   employees: Employee[] = [];
 
+  arrayNum: number[] = [];
+  quantity:number = 0;
+
+  generateList() { this.arrayNum = Array.from(Array(this.quantity).keys()); }
+
   // initializing array with 4 new objects
   constructor() {
     this.employees.push(new Employee("Peter",42,true));

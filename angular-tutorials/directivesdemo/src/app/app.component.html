@@ -18,6 +18,12 @@
   </li>
 </ul>
 
+<label for="quantity">Enter number </label>
+<input type="number" id="quantity" name="quantity" [(ngModel)]="quantity">
+
+<button type="button" (click)="generateList()">Generate List</button>
+<ul> <li *ngFor="let num of arrayNum"> Count : {{ num + 1 }} </li> </ul>
+
 <h4> Displaying items from an array of objects within a table </h4>
 
 <table>
