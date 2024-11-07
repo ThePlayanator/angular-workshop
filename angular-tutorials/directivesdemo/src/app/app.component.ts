@@ -14,9 +14,10 @@ import { Employee } from './Employee';
 
 export class AppComponent {
 
-  buttonMessage: string = 'Show table contents';
-
-  showTable: boolean = false;
+  // initial default value 100
+  // so all employees are listed
+  ageLimit: number = 100;
+  maritalStatus: boolean | null = null;
 
   employees: Employee[] = [];
 
@@ -29,14 +30,17 @@ export class AppComponent {
     this.employees.push(new Employee("Noah",50,true));
   }
 
-  flipTableStatus() {
-    if (this.buttonMessage === 'Show table contents')
-      this.buttonMessage = 'Hide table contents';
-    else   
-    this.buttonMessage = 'Show table contents';
+  setNewLimit(val: string) {
+    this.ageLimit = parseInt(val); 
+  }
 
-    this.showTable = !this.showTable;
+  setNewMarital(status: boolean){
+    this.maritalStatus = status;
+  }
 
+  resetFilters() {
+    this.ageLimit = 100; // Reset to show all ages
+    this.maritalStatus = null; // Reset to show all marital statuses
   }
 
 }

@@ -1,9 +1,25 @@
 <h1> Employee app </h1>
 
-<button type="button" (click)="flipTableStatus()">{{buttonMessage}}</button>
+<label for="empAge">Age limit : </label>
+<input #empAge type="number" id="empAge" name="empAge">
 <br>
 <br>
 
+<button type="button" (click)="setNewLimit(empAge.value)">Show employees younger than age limit</button>
+
+<br>
+
+<input type="radio" id="single" name="marital" value="single" (click)="setNewMarital(false)">
+<label for="single">Single</label>
+
+<input type="radio" id="married" name="marital" value="married" (click)="setNewMarital(true)">
+<label for="married">Married</label>
+
+<br>
+<br>
+<button type="button" (click)="resetFilters()">Reset Filters</button>
+<br>
+<br>
 
 <table>
     <thead>
@@ -15,13 +31,15 @@
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngIf="showTable">
-            <tr *ngFor="let emp of employees;let i=index;">
+        <tr *ngFor="let emp of employees;let i=index;">
+            <ng-container *ngIf="(emp.age < ageLimit) && (maritalStatus === null || emp.isMarried === maritalStatus)">
                 <td>{{i+1}}</td>
                 <td>{{emp.name}}</td>
                 <td>{{emp.age}}</td>
                 <td>{{emp.isMarried ? 'married':'single'}}</td>
-            </tr>
-        </ng-container>
+            </ng-container>
+
+        </tr>
     </tbody>
 </table>
+<br>
