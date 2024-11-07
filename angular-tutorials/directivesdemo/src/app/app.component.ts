@@ -14,9 +14,11 @@ import { Employee } from './Employee';
 
 export class AppComponent {
 
-  employees: Employee[] = [];
+  buttonMessage: string = 'Show table contents';
 
-  message = '';
+  showTable: boolean = false;
+
+  employees: Employee[] = [];
 
   // initializing array with 8 new objects
   constructor() {
@@ -25,18 +27,16 @@ export class AppComponent {
     this.employees.push(new Employee("Hilary",36,true));
     this.employees.push(new Employee("Scot",27,false));
     this.employees.push(new Employee("Noah",50,true));
-    this.employees.push(new Employee("Olivia",20,false));
-    this.employees.push(new Employee("Amelia",60,true));
-    this.employees.push(new Employee("William",29,false));
   }
 
-  showButtonInfo(pos: number) {
-    this.message = `You clicked button : ${pos} for ${this.employees[pos].name}`; 
-  }
+  flipTableStatus() {
+    if (this.buttonMessage === 'Show table contents')
+      this.buttonMessage = 'Hide table contents';
+    else   
+    this.buttonMessage = 'Show table contents';
 
-  changeName(buttonPos: string, newVal: string) {
-    this.employees[parseInt(buttonPos)].name = newVal;
-  }
+    this.showTable = !this.showTable;
 
+  }
 
 }

@@ -2,9 +2,7 @@ table, th, td {
     border: 1px solid black;
 }
 
-div {
-    width: 130px;
-    padding: 5px;
-    margin: 10px;
-    border: 2px solid blue;
+.special {
+    background-color:royalblue;
 }
+
