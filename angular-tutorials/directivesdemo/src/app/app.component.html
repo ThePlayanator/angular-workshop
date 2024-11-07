@@ -1,21 +1,38 @@
 <h1> My first Angular app </h1>
 
+<h4> Displaying items from simple array in a list without ngFor </h4>
+<ul>
+  <li>Animal : {{ animals[0] }}</li>
+  <li>Animal : {{ animals[1] }}</li>
+  <li>Animal : {{ animals[2] }}</li>
+  <li>Animal : {{ animals[3] }}</li>
+</ul>
 
-<p [ngStyle]="styleTheText">Text to style with ngStyle</p>
+<h4> Displaying items from simple array in a list with ngFor </h4>
 
+<ul>
+  <!-- animal is a template input variable -->
+  <li *ngFor="let animal of animals">
+    <!-- We can access the template input variable anywhere within the nested HTML -->
+    Animal : {{ animal }}
+  </li>
+</ul>
 
-<!-- No error checking performed. Make sure you enter a valid value -->
-<label for="colorField">Color to style text with :</label><br>
-<input #colorField type="text" id="colorField" name="colorField">
-<br>
-<button type=button (click)="changeColor(colorField.value)">Change color</button>
+<h4> Displaying items from an array of objects within a table </h4>
 
-<br>
-<br>
-
-<!-- No error checking performed. Make sure you enter a valid value -->
-<label for="sizeField">Font size of text :</label><br>
-<input #sizeField type="text" id="sizeField" name="sizeField">
-<br>
-<button type=button (click)="changeFontSize(sizeField.value)">Change font size</button>
-
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Marital Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{emp.name}}</td>
+      <td>{{emp.age}}</td>
+      <td>{{emp.isMarried ? 'married':'single'}}</td>
+    </tr>
+  </tbody>
+</table>
