@@ -37,6 +37,5 @@ export class AppComponent {
   changeName(buttonPos: string, newVal: string) {
     this.employees[parseInt(buttonPos)].name = newVal;
   }
-
-
+  
 }
