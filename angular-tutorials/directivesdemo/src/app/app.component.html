@@ -1,44 +1,25 @@
 <h1> My first Angular app </h1>
 
-<h4> Displaying items from simple array in a list without ngFor </h4>
-<ul>
-  <li>Animal : {{ animals[0] }}</li>
-  <li>Animal : {{ animals[1] }}</li>
-  <li>Animal : {{ animals[2] }}</li>
-  <li>Animal : {{ animals[3] }}</li>
-</ul>
+<h4> Using i to track the index of the item in ngFor </h4>
 
-<h4> Displaying items from simple array in a list with ngFor </h4>
+<!-- Ensure you enter a valid value, no error checking performed here ! -->
+<label for="buttonNum">Button number : </label>
+<input #buttonNum type="number" id="buttonNum" name="buttonNum" min="0" max="7">
+<br>
 
-<ul>
-  <!-- animal is a template input variable -->
-  <li *ngFor="let animal of animals">
-    <!-- We can access the template input variable anywhere within the nested HTML -->
-    Animal : {{ animal }}
-  </li>
-</ul>
+<!-- Ensure you enter a valid value, no error checking performed here ! -->
+<label for="newName">New name : </label>
+<input #newName type="text" id="newName" name="newName">
+<br>
 
-<label for="quantity">Enter number </label>
-<input type="number" id="quantity" name="quantity" [(ngModel)]="quantity">
+<button (click)="changeName(buttonNum.value, newName.value)">Make change</button>
 
-<button type="button" (click)="generateList()">Generate List</button>
-<ul> <li *ngFor="let num of arrayNum"> Count : {{ num + 1 }} </li> </ul>
+<p>{{message}}</p>
 
-<h4> Displaying items from an array of objects within a table </h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Marital Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let emp of employees">
-      <td>{{emp.name}}</td>
-      <td>{{emp.age}}</td>
-      <td>{{emp.isMarried ? 'married':'single'}}</td>
-    </tr>
-  </tbody>
-</table>
+<!-- Use local variable i to access index into collection.
+Basically it tracks the index 
+-->
+<div class="button-container" *ngFor="let emp of employees;let i = index">
+  <button (click)="showButtonInfo(i)">
+  Button # {{i}} : {{emp.name}}</button>
+</div>

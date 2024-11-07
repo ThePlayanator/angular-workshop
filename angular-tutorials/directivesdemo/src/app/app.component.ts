@@ -14,23 +14,29 @@ import { Employee } from './Employee';
 
 export class AppComponent {
 
-  animals: string[] = ['cat','dog','mouse','horse'];
-
   employees: Employee[] = [];
 
-  arrayNum: number[] = [];
-  quantity:number = 0;
+  message = '';
 
-  generateList() { this.arrayNum = Array.from(Array(this.quantity).keys()); }
-
-  // initializing array with 4 new objects
+  // initializing array with 8 new objects
   constructor() {
     this.employees.push(new Employee("Peter",42,true));
     this.employees.push(new Employee("Jane",22,false));
     this.employees.push(new Employee("Hilary",36,true));
     this.employees.push(new Employee("Scot",27,false));
+    this.employees.push(new Employee("Noah",50,true));
+    this.employees.push(new Employee("Olivia",20,false));
+    this.employees.push(new Employee("Amelia",60,true));
+    this.employees.push(new Employee("William",29,false));
   }
 
+  showButtonInfo(pos: number) {
+    this.message = `You clicked button : ${pos} for ${this.employees[pos].name}`; 
+  }
+
+  changeName(buttonPos: string, newVal: string) {
+    this.employees[parseInt(buttonPos)].name = newVal;
+  }
 
 
 }
