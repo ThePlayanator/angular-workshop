@@ -12,27 +12,33 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
 
-  // Approach #1: A space-delimited string of class names
-  stringOfClasses = "special safe";
-
   // Approach #2: An  object with class names as the keys and 
   // truthy or falsy expressions as the values
   classesToAdd = {
-    large : false,
-    special : this.stringOfClasses.length > 2,
-    danger :  this.alwaysReturnTrue ()
+    large: false,
+    special: true,
+    danger: false
   };
 
-  // Approach #3: An array of class names
-  classesInArray = ['medium','emphasize','safe'];
 
-  alwaysReturnTrue () {
-    return true;
+  flipValues() {
+    this.classesToAdd.danger = !this.classesToAdd.danger;
+    this.classesToAdd.special = !this.classesToAdd.special;
+    this.classesToAdd.large = !this.classesToAdd.large;
   }
 
-  isThisForReal = true;
+  // Approach #3: An array of class names
+  classesInArray = ['medium', 'safe'];
 
-  isItDangerous = true;
+  addNewName(val: string) {
+    console.log("New class name to add : ", val);
+    this.classesInArray.push(val);
+  }
+
+  removeRecentName() {
+    this.classesInArray.pop();
+  }
+
 
 
 }
