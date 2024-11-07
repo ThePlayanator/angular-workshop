@@ -12,35 +12,25 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
 
-  stringOfStyle="borderColor1 borderStyle2";
-
-  // Approach #2: An  object with class names as the keys and 
-  // truthy or falsy expressions as the values
-  classesToAdd = {
-    large: false,
-    special: true,
-    danger: false
-  };
-
-
-  flipValues() {
-    this.classesToAdd.danger = !this.classesToAdd.danger;
-    this.classesToAdd.special = !this.classesToAdd.special;
-    this.classesToAdd.large = !this.classesToAdd.large;
+  styleTheText = {
+    'font-size' : '30px',
+    'font-style' : 'italic',
+    'color' : 'green'
   }
 
-  // Approach #3: An array of class names
-  classesInArray = ['medium', 'safe'];
-
-  addNewName(val: string) {
-    console.log("New class name to add : ", val);
-    this.classesInArray.push(val);
+  // No error checking performed
+  // Make sure you enter a valid value
+  changeColor(val: string) {
+    console.log("New color : ", val);
+    this.styleTheText.color = val;
   }
 
-  removeRecentName() {
-    this.classesInArray.pop();
+  // No error checking performed
+  // Make sure you enter a valid value
+  changeFontSize(val: string) {
+    console.log("New font size : ", val);
+    this.styleTheText['font-size'] = val + 'px';
   }
-
 
 
 }
