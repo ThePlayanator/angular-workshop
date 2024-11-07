@@ -12,6 +12,8 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
 
+  stringOfStyle="borderColor1 borderStyle2";
+
   // Approach #2: An  object with class names as the keys and 
   // truthy or falsy expressions as the values
   classesToAdd = {
