@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../Employee';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
@@ -18,5 +19,15 @@ myEmployee!: Employee;
 
 @Input()
 employeeNum!: number;
+
+@Output() 
+rowChanged: EventEmitter<number> = new EventEmitter();
+
+
+setNewValues(marStatus: boolean) {
+  this.myEmployee.isMarried = marStatus;
+  this.rowChanged.emit(this.employeeNum);
+}
+
 
 }

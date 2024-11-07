@@ -15,6 +15,8 @@ import { EmployeeComponent } from './employee/employee.component';
 
 export class AppComponent {
 
+  rowToHighlight: number = -1;
+
   employees: Employee[] = [];
 
   // initializing array with 8 new objects
@@ -24,10 +26,5 @@ export class AppComponent {
     this.employees.push(new Employee("Hilary",36,true));
     this.employees.push(new Employee("Scot",27,false));
     this.employees.push(new Employee("Noah",50,true));
-    this.employees.push(new Employee("Olivia",20,false));
-    this.employees.push(new Employee("Amelia",60,true));
-    this.employees.push(new Employee("William",29,false));
   }
-
-
 }
