@@ -15,16 +15,21 @@ import { EmployeeComponent } from './employee/employee.component';
 
 export class AppComponent {
 
-  rowToHighlight: number = -1;
+  animals: string[] = ['cat','dog','mouse','horse'];
 
   employees: Employee[] = [];
 
-  // initializing array with 8 new objects
+  // initializing array with 4 new objects
   constructor() {
     this.employees.push(new Employee("Peter",42,true));
     this.employees.push(new Employee("Jane",22,false));
     this.employees.push(new Employee("Hilary",36,true));
     this.employees.push(new Employee("Scot",27,false));
-    this.employees.push(new Employee("Noah",50,true));
   }
+
+  removeEmployee() {
+    this.employees.pop();
+  }
+
+
 }
