@@ -1,0 +1,107 @@
+
+<h1>Reactive Forms Demo</h1>
+
+<!-- By setting novalidate attribute on the overall <form> element
+  we can disable built-in HTML5 validation and allow Angular instead
+to handle all validation for the form data -->
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" novalidate>
+ 
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" formControlName="firstname">
+  </p>
+
+  <!-- Simplified expressions for all ngIf directives 
+    using getter methods for the various FormControl objects
+  in the main FormGroup object -->
+
+    
+  <!-- Validation error message for first name -->
+  @if ( firstname?.invalid && (firstname?.dirty || firstname?.touched) ) {
+
+    @if (firstname?.errors?.['required'] ) {
+      <p class="errorMessage">First name is required</p>
+    }
+
+    @if (firstname?.errors?.['minlength'] ) {
+      <p class="errorMessage">First name must be at least 3 characters long.</p>
+    }
+
+  }  
+
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" formControlName="lastname">
+  </p>
+
+  <!-- Validation error message for last name -->
+  @if ( lastname?.invalid && (lastname?.dirty || lastname?.touched) ) {
+
+    @if (lastname?.errors?.['required'] ) {
+      <p class="errorMessage">Last name is required</p>
+    }
+
+    @if (lastname?.errors?.['maxlength'] ) {
+      <p class="errorMessage">Last name cannot be more than 6 characters long.</p>
+    }
+
+  }  
+
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" formControlName="email">
+  </p>
+
+  <!-- Validation error message for email -->
+  @if ( email?.invalid && (email?.dirty || email?.touched) ) {
+
+    @if (email?.errors?.['required'] ) {
+      <p class="errorMessage">Email is required</p>
+    }
+
+    @if (email?.errors?.['email'] ) {
+      <p class="errorMessage">Email is in incorrect format.</p>
+    }    
+
+  }
+
+  <p>
+    <label for="age">Age </label>
+    <input type="number" id="age" formControlName="age">
+  </p>
+
+  <!-- Validation error message for age -->
+  @if ( age?.invalid && (age?.dirty || age?.touched) ) {
+
+    @if (age?.errors?.['required'] ) {
+      <p class="errorMessage">Age is required</p>
+    }
+
+    @if (age?.errors?.['min'] ) {
+      <p class="errorMessage">Age cannot be less than 18</p>
+    }
+    
+    @if (age?.errors?.['max'] ) {
+      <p class="errorMessage">Age cannot be more than 70</p>
+    }  
+
+  }
+
+  <p>
+    <label for="job">Job </label>
+    <input type="text" id="job" formControlName="job">
+  </p>   
+
+  <!-- No validation error message for job since this has no 
+  validator function associated with it -->
+
+
+  <!-- Disable the submit button if the status of the form is invalid. 
+  Only allow form submissions when all fields are valid -->
+  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+  <br>
+
+</form>
+

@@ -1,0 +1,105 @@
+
+<h1>Change Request Submission Forms Demo</h1>
+
+<!-- By setting novalidate attribute on the overall <form> element
+  we can disable built-in HTML5 validation and allow Angular instead
+to handle all validation for the form data -->
+<form [formGroup]="crForm"  (ngSubmit)="onSubmit()" novalidate>
+ 
+  <p>
+    <label for="crNum">CR Number </label>
+    <input type="number" id="crNum" formControlName="crNumber">
+  </p>
+
+  <!-- Simplified expressions for all ngIf directives 
+    using getter methods for the various FormControl objects
+  in the main FormGroup object -->
+
+    
+  <!-- Validation error message for first name -->
+  @if ( crNum?.invalid && (crNum?.dirty || crNum?.touched) ) {
+
+    @if (crNum?.errors?.['required'] ) {
+      <p class="errorMessage">CR Number is required</p>
+    }
+
+    <!-- Tukar accept numbers only -->
+
+    @if (crNum?.errors?.['minlength'] || crNum?.errors?.['maxLength']) {
+      <p class="errorMessage">CR Number must be 6 digits</p>
+    }
+
+  }  
+
+
+  <p>
+    <label for="slcr">SL_CR# Reference Number </label>
+    <input type="text" id="slcr" formControlName="sl_crNumber">
+  </p>
+
+  <!-- Validation error message for last name -->
+  @if ( slcr?.invalid && (slcr?.dirty || slcr?.touched) ) {
+
+    @if (slcr?.errors?.['required'] ) {
+      <p class="errorMessage">SL_CR is required</p>
+    }
+
+    @if (slcr?.errors?.['maxlength'] ) {
+      <p class="errorMessage">SL_CR cannot be more than 10 characters long.</p>
+    }
+
+  }  
+
+
+  <p>
+    <label for="dateRequested">Date Requested </label>
+    <input type="date" id="dateRequested" formControlName="crDate">
+  </p>
+
+  <!-- Validation error message for email -->
+  @if ( dateRequested?.invalid && (dateRequested?.dirty || dateRequested?.touched) ) {
+
+    @if (dateRequested?.errors?.['required'] ) {
+      <p class="errorMessage">Date is required</p>
+    }
+
+    @if (dateRequested?.errors?.['dateValidator'] ) {
+      <p class="errorMessage">Date is in incorrect format.</p>
+    }    
+
+  }
+
+  <p>
+    <label for="sippic">Person-in-Charge </label>
+    <input type="text" id="sippic" formControlName="pic">
+  </p>
+
+  <!-- Validation error message for age -->
+  @if ( sippic?.invalid && (sippic?.dirty || sippic?.touched) ) {
+
+    @if (sippic?.errors?.['required'] ) {
+      <p class="errorMessage">Person-in-Charge is required</p>
+    }
+
+    @if (sippic?.errors?.['min'] ) {
+      <p class="errorMessage">Name must be at lasdsaeast than 3 characters</p>
+    }
+
+  }
+
+  <p>
+    <label for="job">CR Description </label>
+    <input type="text" id="job" formControlName="crDescription">
+  </p>   
+
+  <!-- No validation error message for job since this has no 
+  validator function associated with it -->
+
+
+  <!-- Disable the submit button if the status of the form is invalid. 
+  Only allow form submissions when all fields are valid -->
+  <button type="submit" [disabled]="crForm.invalid">Submit</button>
+  <br>
+
+</form>
+
